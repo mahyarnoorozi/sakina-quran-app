@@ -18,6 +18,28 @@ import {
 import { HSlider } from "./HSlider";
 import { PauseGlyph, PlayGlyph } from "./PlayPauseIcon";
 
+/** نشانگر واقعی لایه فعال — روشن/خاموش از استور */
+function LayerDot({ on, label }: { on: boolean; label: string }) {
+  return (
+    <span
+      className={cn(
+        "inline-flex items-center gap-1.5 text-[10px] font-bold rounded-full px-2.5 py-1 border transition-colors",
+        on
+          ? "border-[#2E9B7F]/50 bg-[#2E9B7F]/10 text-[#7FD6B8]"
+          : "border-white/10 bg-white/5 text-white/35"
+      )}
+    >
+      <span
+        className={cn(
+          "w-1.5 h-1.5 rounded-full",
+          on ? "bg-[#7FD6B8] animate-pulse" : "bg-white/25"
+        )}
+      />
+      {label}
+    </span>
+  );
+}
+
 /** چیپ آیکونی صدا — دقیقاً مثل ردیف آیکون‌های Quranify */
 const SOUND_CHIPS = [
   { id: null, icon: VolumeX, label: "خاموش" },
@@ -162,21 +184,10 @@ export function MixerTab() {
             </div>
           </div>
 
-          {/* ویژوالایزر ظریف */}
-          <div className="mt-4 flex items-end justify-center gap-1 h-6" aria-hidden>
-            {Array.from({ length: 20 }).map((_, i) => (
-              <span
-                key={i}
-                className={cn("w-1.5 rounded-full origin-bottom", isPlaying && "animate-pulse")}
-                style={{
-                  height: isPlaying ? `${6 + ((i * 29) % 16)}px` : "3px",
-                  background: i % 4 === 0 ? "#E2C288" : "#2E9B7F",
-                  opacity: isPlaying ? 0.55 + ((i % 4) * 0.1) : 0.22,
-                  animationDelay: `${(i % 5) * 0.15}s`,
-                  animationDuration: "1.5s",
-                }}
-              />
-            ))}
+          {/* وضعیت واقعی لایه‌ها — نمایشی نیست، از استور می‌خواند */}
+          <div className="mt-4 flex items-center gap-2" aria-hidden>
+            <LayerDot on={isPlaying} label="تلاوت" />
+            <LayerDot on={!!ambientSoundId} label="طبیعت" />
           </div>
         </div>
       </section>

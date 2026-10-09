@@ -69,19 +69,15 @@ export function QuranTab({ onOpenSurah }: { onOpenSurah: (id: number) => void })
             className="w-full h-12 rounded-2xl border border-border bg-card pr-11 pl-4 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
           />
         </div>
-        {/* فیلترها */}
+      {/* فیلترها */}
         <div className="flex gap-2 mt-3">
           {FILTERS.map((f) => (
             <button
               key={f.id}
               onClick={() => setFilter(f.id)}
               aria-pressed={filter === f.id}
-              className={cn(
-                "h-9 px-5 rounded-full text-xs font-bold border transition-all min-h-9",
-                filter === f.id
-                  ? "border-primary bg-primary text-primary-foreground"
-                  : "border-border bg-card text-brand-ink-muted hover:border-primary/40"
-              )}
+              className="ds-chip min-h-9"
+              data-active={filter === f.id}
             >
               {f.label}
             </button>
@@ -89,15 +85,15 @@ export function QuranTab({ onOpenSurah }: { onOpenSurah: (id: number) => void })
         </div>
       </div>
 
-      {/* ادامه خوانش سنجاق‌شده */}
+      {/* ادامه خوانش سنجاق‌شده — واکنش‌گرا به استور */}
       <div className="px-5 mt-3">
         <button
-          onClick={() => onOpenSurah(usePlayerStore.getState().surahId)}
-          className="w-full flex items-center justify-between rounded-2xl border border-primary/30 bg-primary/5 px-4 h-12 text-sm font-bold text-primary"
+          onClick={() => onOpenSurah(currentSurah)}
+          className="w-full flex items-center justify-between rounded-2xl border border-primary/30 bg-primary/5 px-4 h-12 text-sm font-bold text-primary tap"
         >
           <span>ادامه‌ی خوانش</span>
           <span className="text-xs font-semibold">
-            {surahs.find((s) => s.id === usePlayerStore.getState().surahId)?.persianName}
+            {surahs.find((s) => s.id === currentSurah)?.persianName}
           </span>
         </button>
       </div>
