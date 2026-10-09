@@ -30,3 +30,28 @@ Stage Summary:
 - فرآیند سه‌مرحله‌ای MASTER PROMPT (Audit→DS→Implementation) انجام و QA شد؛ اسکرین‌شات‌ها: screenshots/v9-*.png (۱۰ تصویر)
 - باقی‌مانده صادقانه: بازطراحی عمیق Library/Profile/Onboarding/Premium/Reciter/Sleep فقط هم‌ترازسازی توکن بود؛ در لنداسکیپ کوتاه مینی‌پلیر+تب‌بار فضای عمودی زیادی می‌گیرند؛ اپ وابسته به CDN everyayah است (آفلاین فقط با دانلود)
 - همه تغییرات commit شده (v9-*) — از این پس هر مرحله باید commit شود تا ریست workspace خسارت نزند
+
+---
+Task ID: 10
+Agent: main (Super Z)
+Task: بازطراحی جامع v10 بر اساس Mission نهایی کاربر (research→audit→roadmap→DS→implement→QA)
+
+Work Log:
+- Audit واقعی: ۱۲+ اسکرین‌شات agent-browser + بازخوانی PlayerFull/PlayerMini/TabBar/HomeTab/MixerTab/globals.css/page.tsx/settings
+- باگ‌های P0 شناسایی و رفع: (۱) ReciterSheet زیر PlayerFull نامرئی بود → z-[95]؛ (۲) بریدگی چیپ فعال در لبه کارت هیرو → POPULAR=[1,36,...] + fade-x + scrollIntoView؛ (۳) دو نوار انباشته پایین → دوک یکپارچه h-56 با mini-progress
+- DS v10 در globals.css: توکن‌های --veil/--veil-strong/--veil-border/--live/--stage-*/--star-pattern-url، session-surface، fade-x، seek-track/fill/thumb، ds-list-row، stage-ink
+- پاک‌سازی hard-code رنگ‌ها در ۸ کامپوننت (ProfileTab/SleepSheet/PremiumSheet/LibraryTab/Onboarding/Mixer/HSlider/Home) → توکن برند
+- PlayerMini بازنویسی: play+عنوان+آیه بعد + خط پیشرفت 1Hz + حذف دکمه میکسر زائد
+- PlayerFull: پس‌زمینه گرادیان توکنی (عکس قاری فقط ۱۸٪ هاله)، سیک‌بار توکنی، ردیف پایین fade-x
+- MixerTab: LayerDot با sr-only + برچسب، حذف ردیف وضعیت مبهم، پریست fade-x، کارت پخش ds-card
+- HomeTab: هیرو session-surface بدون عکس، میانبرها کارت آیکونی، alt="" قاری‌ها
+- reciter switch وسط پخش تست شد (ayah=52 حفظ شد)؛ dual-layer واقعی (rain-light vol55) تأیید شد
+- Radix DialogContent warnings با aria-describedby={undefined} رفع شد
+- lint ۰/۰ + build موفق + overflow 0 در ۳۶۰ و لنداسکیپ + console error ۰
+- REDESIGN_ROADMAP.md نوشته شد (۱۳ بخش، شامل نتیجه اجرا)
+- GitHub: ریپو پاک شد (filter-branch، ۱۵۴MB→۵۰MB)، force-push + push v10
+
+Stage Summary:
+- v10 commit 24bc6ba روی github.com/mahyarnoorozi/sakina-quran-app
+- اسکرین‌شات‌ها: screenshots/v10-01..13 (دارک/لایت/پلیر/شیت/۳۶۰/لنداسکیپ)
+- باقی‌مانده: MediaSession قفل صفحه، دانلود کامل آفلاین، روی‌داد آفلاین CDN — مستند در roadmap §13
