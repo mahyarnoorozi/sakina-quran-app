@@ -2,3 +2,9 @@ skills/
 node_modules/
 .next
 node_modules
+dev.log
+.sakina-backup/
+download/
+research/
+screenshots/
+*.log
