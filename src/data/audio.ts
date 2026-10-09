@@ -167,37 +167,39 @@ export interface NatureSound {
   image: string;
 }
 
+/**
+ * ۴ صدای آرامش — دقیقاً هم‌تراز Quranify (باران، امواج دریا، آتش، پرندگان)
+ * هر صدا فایل واقعی لوپ‌شده اختصاصی دارد: /sounds/{id}.mp3
+ */
 export const natureSounds: NatureSound[] = [
-  // باران
-  { id: "rain-light", name: "باران ملایم", description: "باران پاییزی آرام", category: "rain", premium: false, icon: "CloudRain", color: "#5a7894", image: "/images/sounds/rain-light.jpg" },
-  { id: "rain-heavy", name: "رگبار شدید", description: "باران بهاری قوی", category: "rain", premium: false, icon: "CloudRain", color: "#4a6874", image: "/images/sounds/rain-heavy.jpg" },
-  { id: "rain-tent", name: "باران روی چادر", description: "باران روی سطح پارچه‌ای", category: "rain", premium: false, icon: "Tent", color: "#52796F", image: "/images/sounds/rain-tent.jpg" },
-
-  // آتش
-  { id: "fire-camp", name: "آتش هیزم", description: "صدای ترق‌تروق آتش", category: "fire", premium: false, icon: "Flame", color: "#C5884A", image: "/images/sounds/fire-camp.jpg" },
-
-  // آب
+  { id: "rain-light", name: "باران", description: "باران آرام و مداوم", category: "rain", premium: false, icon: "CloudRain", color: "#5a7894", image: "/images/sounds/rain-light.jpg" },
   { id: "ocean-waves", name: "امواج دریا", description: "موج آرام ساحل", category: "water", premium: false, icon: "Waves", color: "#5a7894", image: "/images/sounds/ocean-waves.jpg" },
-  { id: "river-flow", name: "رودخانه کوهستانی", description: "جریان سریع", category: "water", premium: false, icon: "Droplets", color: "#4a6894", image: "/images/sounds/river-flow.jpg" },
-  { id: "waterfall", name: "آبشار", description: "آبشار آرام", category: "water", premium: false, icon: "Waves", color: "#4a7a94", image: "/images/sounds/waterfall.jpg" },
-
-  // طبیعت
-  { id: "wind-soft", name: "باد ملایم", description: "نسیم بهاری", category: "nature", premium: false, icon: "Wind", color: "#a39988", image: "/images/sounds/wind-soft.jpg" },
-  { id: "forest-birds", name: "جنگل و پرندگان", description: "پرندگان + باد ملایم", category: "nature", premium: false, icon: "Bird", color: "#5c7a4c", image: "/images/sounds/forest-birds.jpg" },
-  { id: "deep-forest", name: "جنگل عمیق", description: "صدای دور جنگل باستانی", category: "nature", premium: false, icon: "Trees", color: "#386641", image: "/images/sounds/deep-forest.jpg" },
-  { id: "cricket-night", name: "سوسک‌های شب", description: "صدای شب تابستانی", category: "nature", premium: false, icon: "Moon", color: "#5a6470", image: "/images/sounds/cricket-night.jpg" },
-  { id: "thunder", name: "رعد و برق", description: "صدای طوفان و رعد", category: "rain", premium: false, icon: "CloudRain", color: "#3a4854", image: "/images/sounds/rain-heavy.jpg" },
-
-  // ساز و مدیتیشن
-  { id: "crystal-bowls", name: "کاسه‌های کریستال", description: "صدای مدیتیشن 432Hz", category: "instrument", premium: false, icon: "Sparkles", color: "#9B5DE5", image: "/images/sounds/crystal-bowls.jpg" },
-  { id: "singing-bowl", name: "سنگ آواز تبت", description: "صدای آوای تبت", category: "instrument", premium: false, icon: "BellRing", color: "#a4a4a4", image: "/images/sounds/singing-bowl.jpg" },
-  { id: "wind-chimes", name: "زنگ باد", description: "نوای آرام زنگ‌های بادی", category: "instrument", premium: false, icon: "Bell", color: "#C9A961", image: "/images/sounds/wind-chimes.jpg" },
-
-  // نویز
-  { id: "white-noise", name: "نویز سفید", description: "صدای خالص", category: "silence", premium: false, icon: "Volume2", color: "#8a8276", image: "/images/sounds/white-noise.jpg" },
-  { id: "brown-noise", name: "نویز قهوه‌ای", description: "برای تمرکز", category: "silence", premium: false, icon: "Volume2", color: "#8a6a4a", image: "/images/sounds/white-noise.jpg" },
-  { id: "pink-noise", name: "نویز صورتی", description: "برای خواب عمیق", category: "silence", premium: false, icon: "Volume2", color: "#c98aa4", image: "/images/sounds/white-noise.jpg" },
+  { id: "fire-camp", name: "آتش هیزم", description: "ترق‌تروق شومینه", category: "fire", premium: false, icon: "Flame", color: "#C5884A", image: "/images/sounds/fire-camp.jpg" },
+  { id: "forest-birds", name: "پرندگان", description: "جنگل و آواز پرندگان", category: "nature", premium: false, icon: "Bird", color: "#5c7a4c", image: "/images/sounds/forest-birds.jpg" },
 ];
+
+/** نام فارسی هر شناسه صدا — شامل شناسه‌های قدیمی استورهای persist‌شده */
+const LEGACY_SOUND_NAMES: Record<string, string> = {
+  "rain-heavy": "رگبار شدید",
+  "rain-tent": "باران روی چادر",
+  "thunder": "رعد و برق",
+  "river-flow": "رودخانه",
+  "waterfall": "آبشار",
+  "wind-soft": "باد ملایم",
+  "deep-forest": "جنگل عمیق",
+  "cricket-night": "سوسک‌های شب",
+  "crystal-bowls": "کاسه‌های کریستال",
+  "singing-bowl": "سنگ آواز تبت",
+  "wind-chimes": "زنگ باد",
+  "white-noise": "نویز سفید",
+  "brown-noise": "نویز قهوه‌ای",
+  "pink-noise": "نویز صورتی",
+};
+
+export function soundNameOf(id: string | null): string {
+  if (!id) return "خاموش";
+  return natureSounds.find((s) => s.id === id)?.name ?? LEGACY_SOUND_NAMES[id] ?? id;
+}
 
 export interface MixerPreset {
   id: string;
@@ -218,27 +220,27 @@ export const mixerPresets: MixerPreset[] = [
   {
     id: "rainy-night",
     name: "شب بارانی",
-    description: "تلاوت آرام با باران ملایم",
+    description: "تلاوت آرام زیر باران",
     reciterId: "ghamadi",
     surahId: 67,
     ambientSoundId: "rain-light",
-    ambientVolume: 60,
-    backgroundSoundId: "wind-soft",
-    backgroundVolume: 25,
+    ambientVolume: 55,
+    backgroundSoundId: "",
+    backgroundVolume: 0,
     reciterVolume: 80,
     premium: false,
     iconColor: "#5a7894",
   },
   {
     id: "fire-place",
-    name: "آتش هیزم",
-    description: "تلاوت گرم کنار آتش",
+    name: "کنار آتش",
+    description: "تلاوت گرم کنار هیزم",
     reciterId: "abdulbasit",
     surahId: 55,
     ambientSoundId: "fire-camp",
-    ambientVolume: 55,
-    backgroundSoundId: "wind-soft",
-    backgroundVolume: 20,
+    ambientVolume: 50,
+    backgroundSoundId: "",
+    backgroundVolume: 0,
     reciterVolume: 80,
     premium: false,
     iconColor: "#C5884A",
@@ -251,81 +253,53 @@ export const mixerPresets: MixerPreset[] = [
     surahId: 36,
     ambientSoundId: "ocean-waves",
     ambientVolume: 55,
-    backgroundSoundId: "wind-soft",
-    backgroundVolume: 20,
+    backgroundSoundId: "",
+    backgroundVolume: 0,
     reciterVolume: 75,
     premium: false,
     iconColor: "#5a7894",
   },
   {
-    id: "deep-forest",
-    name: "جنگل عمیق",
-    description: "سکوت جنگل و پرندگان",
-    reciterId: "ghamadi",
-    surahId: 1,
+    id: "morning-forest",
+    name: "صبح جنگل",
+    description: "آواز پرندگان و تلاوت صبحگاهی",
+    reciterId: "sudais",
+    surahId: 93,
     ambientSoundId: "forest-birds",
-    ambientVolume: 50,
-    backgroundSoundId: "wind-soft",
-    backgroundVolume: 30,
-    reciterVolume: 75,
+    ambientVolume: 45,
+    backgroundSoundId: "",
+    backgroundVolume: 0,
+    reciterVolume: 80,
     premium: false,
     iconColor: "#5c7a4c",
   },
   {
-    id: "storm-night",
-    name: "شب طوفانی",
-    description: "رعد و برق و باران شدید",
-    reciterId: "sudais",
-    surahId: 67,
-    ambientSoundId: "rain-heavy",
-    ambientVolume: 65,
-    backgroundSoundId: "thunder",
-    backgroundVolume: 35,
-    reciterVolume: 85,
-    premium: false,
-    iconColor: "#3a4854",
-  },
-  {
-    id: "meditation",
-    name: "مدیتیشن",
-    description: "صدای آرام کاسه کریستال",
-    reciterId: "husary",
-    surahId: 112,
-    ambientSoundId: "crystal-bowls",
-    ambientVolume: 35,
-    backgroundSoundId: "white-noise",
-    backgroundVolume: 15,
-    reciterVolume: 90,
-    premium: false,
-    iconColor: "#9B5DE5",
-  },
-  {
-    id: "waterfall-bliss",
-    name: "آبشار کوهستانی",
-    description: "صدای آبشار + باد",
-    reciterId: "afasy",
-    surahId: 55,
-    ambientSoundId: "waterfall",
-    ambientVolume: 60,
-    backgroundSoundId: "wind-soft",
-    backgroundVolume: 20,
+    id: "ocean-rain",
+    name: "باران ساحلی",
+    description: "ترکیب باران و امواج",
+    reciterId: "minshawi",
+    surahId: 36,
+    ambientSoundId: "ocean-waves",
+    ambientVolume: 45,
+    backgroundSoundId: "",
+    backgroundVolume: 0,
     reciterVolume: 75,
     premium: false,
     iconColor: "#4a7a94",
   },
   {
-    id: "river-stones",
-    name: "کنار رودخانه",
-    description: "آب روان + پرندگان",
-    reciterId: "minshawi",
-    surahId: 36,
-    ambientSoundId: "river-flow",
-    ambientVolume: 55,
-    backgroundSoundId: "forest-birds",
-    backgroundVolume: 25,
-    reciterVolume: 75,
+    id: "quiet-recite",
+    name: "فقط تلاوت",
+    description: "بدون صدای محیط، فقط قرآن",
+    reciterId: "husary",
+    surahId: 112,
+    ambientSoundId: "",
+    ambientVolume: 0,
+    backgroundSoundId: "",
+    backgroundVolume: 0,
+    reciterVolume: 90,
     premium: false,
-    iconColor: "#4a6894",
+    iconColor: "#A2813F",
   },
 ];
 

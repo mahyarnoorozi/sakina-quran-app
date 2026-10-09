@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0F5132",
+  themeColor: "#FAF9F6",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -41,12 +41,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl" suppressHydrationWarning>
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Scheherazade+New:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
       <body className="antialiased bg-background text-foreground min-h-screen">
         {children}
         <Toaster />

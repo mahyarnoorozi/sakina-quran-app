@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>سَکینه — بریف محصول، برندینگ و رودمپ</title>
+<style>
+/* ============ FONTS ============ */
+@font-face { font-family:'Vazirmatn'; src:url('fonts/Vazirmatn-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Vazirmatn'; src:url('fonts/Vazirmatn-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Vazirmatn'; src:url('fonts/Vazirmatn-SemiBold.woff2') format('woff2'); font-weight:600; font-display:swap; }
+@font-face { font-family:'Vazirmatn'; src:url('fonts/Vazirmatn-Bold.woff2') format('woff2'); font-weight:700; font-display:swap; }
+@font-face { font-family:'Vazirmatn'; src:url('fonts/Vazirmatn-Black.woff2') format('woff2'); font-weight:900; font-display:swap; }
+@font-face { font-family:'Amiri'; src:url('fonts/Amiri-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Amiri'; src:url('fonts/Amiri-Bold.woff2') format('woff2'); font-weight:700; font-display:swap; }
+
+/* ============ PAGE ============ */
+@page { size: 720px 1020px; margin: 0; }
+:root{
+  --c-bg:#FAF9F6;
+  --c-section:#F3F1EC;
+  --c-card:#FFFFFF;
+  --c-tint:#F6F5F1;
+  --c-header:#31594D;
+  --c-accent:#1D7860;
+  --c-accent-deep:#145A48;
+  --c-brass:#A2813F;
+  --c-text:#1C211F;
+  --c-muted:#6E7672;
+  --c-border:#E4E0D6;
+}
+html,body{ margin:0; padding:0; width:720px; background:var(--c-bg); color:var(--c-text);
+  font-family:'Vazirmatn','DejaVu Sans',sans-serif; font-size:15px; line-height:1.9; }
+body{ line-break:strict; word-break:normal; overflow-wrap:break-word; }
+@media screen{
+  html{ height:auto; display:flex; justify-content:center; background:#ECEAE4; }
+  body{ transform-origin:top center; margin:20px auto; box-shadow:0 0 40px rgba(0,0,0,.12); }
+}
+p,td,li{ line-break:strict; }
+p{ text-align:justify; margin:0 0 12px; }
+img,svg{ max-width:100%; max-height:45vh; height:auto; }
+
+/* ============ COVER ============ */
+.cover{ width:720px; height:1020px; box-sizing:border-box; break-after:page; overflow:hidden;
+  position:relative; background:var(--c-bg); }
+.cover .bg-layer{ position:absolute; inset:0; overflow:hidden; z-index:1; }
+.cover .bg-star{ position:absolute; left:-120px; top:-120px; width:420px; height:420px; opacity:.05; }
+.cover .bg-star2{ position:absolute; right:-90px; bottom:120px; width:300px; height:300px; opacity:.04; }
+.cover .anchor-line{ position:absolute; right:84px; top:102px; bottom:102px; width:6px; background:var(--c-accent); z-index:2; }
+.cover .content{ position:absolute; inset:0; z-index:3; }
+.cover .kicker{ position:absolute; top:150px; right:126px; font-size:12px; font-weight:500;
+  letter-spacing:6px; color:var(--c-accent); opacity:.85; }
+.cover .hero{ position:absolute; top:210px; right:126px; font-size:88px; font-weight:900;
+  line-height:1.15; color:var(--c-text); }
+.cover .hero-sub{ position:absolute; top:340px; right:126px; font-size:21px; font-weight:600;
+  color:var(--c-header); max-width:460px; line-height:1.6; }
+.cover .verse{ position:absolute; top:455px; right:126px; font-family:'Amiri',serif; font-size:19px;
+  color:var(--c-brass); line-height:2; max-width:470px; }
+.cover .summary{ position:absolute; top:560px; right:126px; max-width:440px; font-size:15px;
+  line-height:2; color:var(--c-text); opacity:.85; text-align:justify; }
+.cover .meta{ position:absolute; top:790px; right:126px; }
+.cover .meta .row{ font-size:13px; color:var(--c-muted); margin-bottom:4px; }
+.cover .meta .row b{ color:var(--c-text); font-weight:600; }
+.cover .chips{ position:absolute; top:880px; right:126px; display:flex; gap:8px; }
+.cover .chip{ font-size:11px; font-weight:600; color:var(--c-accent-deep);
+  border:1px solid var(--c-accent); border-radius:20px; padding:3px 14px; opacity:.9; }
+.cover .footer-label{ position:absolute; bottom:44px; right:126px; left:126px;
+  display:flex; justify-content:space-between; font-size:10px; letter-spacing:3px;
+  color:var(--c-muted); opacity:.7; }
+
+/* ============ MAIN CONTENT ============ */
+.main-content{ padding:56px 60px 44px; }
+
+.chapter-header{ break-after:avoid; break-inside:avoid; margin-top:26px; margin-bottom:16px; }
+.chapter-header .num{ display:inline-flex; align-items:center; justify-content:center;
+  width:34px; height:34px; border-radius:10px; background:var(--c-header); color:#fff;
+  font-weight:900; font-size:15px; margin-left:10px; vertical-align:middle; }
+.chapter-header .title{ display:inline; vertical-align:middle; font-size:24px; font-weight:900;
+  color:var(--c-text); }
+.chapter-header .divider{ margin-top:10px; height:2px; background:linear-gradient(270deg,var(--c-accent),transparent); }
+
+.sub-head{ break-after:avoid; font-size:17px; font-weight:700; color:var(--c-accent-deep);
+  margin:18px 0 8px; }
+
+.lead{ font-size:15.5px; font-weight:500; color:var(--c-header); }
+
+.card{ break-inside:avoid; background:var(--c-card); border:1px solid var(--c-border);
+  border-radius:14px; padding:16px 18px; margin-bottom:14px; }
+.card h4{ margin:0 0 6px; font-size:15px; font-weight:700; color:var(--c-text); }
+.card p{ margin-bottom:6px; font-size:13.5px; line-height:1.85; }
+.card .tagline{ font-size:11.5px; font-weight:600; color:var(--c-accent); letter-spacing:1px; }
+
+.card-accent{ border-right:3px solid var(--c-accent); }
+.card-brass{ border-right:3px solid var(--c-brass); }
+
+.callout{ break-inside:avoid; background:var(--c-section); border-radius:14px;
+  padding:16px 18px; margin:14px 0; font-size:13.5px; line-height:1.9; }
+.callout b{ color:var(--c-accent-deep); }
+
+.grid-2{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom:14px; }
+.grid-2 .col{ flex:1 1 280px; min-width:260px; max-width:100%; }
+
+.kpi-row{ display:flex; flex-wrap:wrap; gap:10px; margin:12px 0 14px; break-inside:avoid; }
+.kpi{ flex:1 1 150px; min-width:140px; background:var(--c-card); border:1px solid var(--c-border);
+  border-radius:12px; padding:12px 14px; text-align:center; }
+.kpi .v{ font-size:24px; font-weight:900; color:var(--c-accent); line-height:1.2; }
+.kpi .l{ font-size:11.5px; color:var(--c-muted); margin-top:2px; line-height:1.5; }
+
+ul.check{ margin:6px 0 12px; padding:0 18px 0 0; list-style:none; }
+ul.check li{ break-inside:avoid; position:relative; margin-bottom:6px; text-align:right;
+  font-size:13.5px; line-height:1.85; }
+ul.check li::before{ content:''; position:absolute; right:-14px; top:11px; width:7px; height:7px;
+  border-radius:2px; background:var(--c-accent); }
+
+table{ width:100%; border-collapse:collapse; margin:10px 0 16px; font-size:12.5px; }
+thead{ display:table-header-group; }
+tr{ break-inside:avoid; }
+th{ background:var(--c-header); color:#fff; font-weight:600; padding:9px 10px; text-align:right;
+  font-size:12px; }
+th:first-child{ border-radius:0 8px 0 0; }
+th:last-child{ border-radius:8px 0 0 0; }
+td{ padding:8px 10px; border-bottom:1px solid var(--c-border); vertical-align:top;
+  line-height:1.75; text-align:right; }
+tbody tr:nth-child(odd) td{ background:var(--c-tint); }
+td b{ color:var(--c-accent-deep); }
+
+.swatch-row{ display:flex; flex-wrap:wrap; gap:10px; margin:12px 0; break-inside:avoid; }
+.swatch{ flex:1 1 100px; min-width:96px; border:1px solid var(--c-border); border-radius:12px;
+  overflow:hidden; background:var(--c-card); }
+.swatch .color{ height:52px; }
+.swatch .info{ padding:7px 9px; font-size:10.5px; line-height:1.6; }
+.swatch .info b{ display:block; font-size:11px; }
+
+.type-row{ break-inside:avoid; display:flex; align-items:center; gap:14px;
+  border-bottom:1px dashed var(--c-border); padding:9px 2px; }
+.type-row .sample{ flex:1; }
+.type-row .spec{ width:150px; font-size:10.5px; color:var(--c-muted); line-height:1.6; }
+
+.phase{ break-inside:avoid; background:var(--c-card); border:1px solid var(--c-border);
+  border-radius:14px; padding:15px 18px; margin-bottom:12px; }
+.phase .ph-head{ display:flex; align-items:baseline; gap:10px; margin-bottom:6px; }
+.phase .ph-num{ font-size:13px; font-weight:900; color:#fff; background:var(--c-accent);
+  border-radius:8px; padding:2px 10px; }
+.phase .ph-title{ font-size:15.5px; font-weight:700; }
+.phase .ph-week{ font-size:11px; font-weight:600; color:var(--c-brass); }
+.phase ul{ margin:6px 0 0; padding:0 16px 0 0; }
+.phase ul li{ font-size:12.8px; line-height:1.8; margin-bottom:3px; text-align:right; }
+
+.quote{ break-inside:avoid; margin:16px 0; padding:14px 20px; border-right:3px solid var(--c-brass);
+  background:var(--c-tint); border-radius:10px; font-size:14.5px; font-weight:500;
+  color:var(--c-header); line-height:2; }
+.verse-inline{ font-family:'Amiri',serif; font-size:16.5px; color:var(--c-accent-deep); }
+
+/* ============ ENDING ============ */
+.ending{ width:720px; height:1020px; box-sizing:border-box; break-before:page; overflow:hidden;
+  position:relative; background:var(--c-header); display:flex; flex-direction:column;
+  justify-content:center; align-items:center; text-align:center; }
+.ending .star{ width:120px; height:120px; opacity:.14; margin-bottom:36px; }
+.ending .big{ font-size:30px; font-weight:900; color:#fff; line-height:1.9; max-width:480px; }
+.ending .small{ font-size:14px; color:#CFE0D8; margin-top:22px; max-width:420px; line-height:2; }
+.ending .brand{ margin-top:52px; font-size:20px; font-weight:900; letter-spacing:8px; color:var(--c-brass); }
+.ending .ver{ font-size:11px; color:#9DB8AC; margin-top:8px; letter-spacing:2px; }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<div class="cover">
+  <div class="bg-layer">
+    <svg class="bg-star" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#1D7860" stroke-width="0.7">
+        <rect x="15" y="15" width="70" height="70"/>
+        <rect x="15" y="15" width="70" height="70" transform="rotate(45 50 50)"/>
+        <circle cx="50" cy="50" r="34"/>
+      </g>
+    </svg>
+    <svg class="bg-star2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#1D7860" stroke-width="0.7">
+        <rect x="15" y="15" width="70" height="70"/>
+        <rect x="15" y="15" width="70" height="70" transform="rotate(45 50 50)"/>
+        <circle cx="50" cy="50" r="34"/>
+      </g>
+    </svg>
+  </div>
+  <div class="anchor-line"></div>
+  <div class="content">
+    <div class="kicker">بریف محصول · برندینگ · رودمپ</div>
+    <div class="hero">سَکینه</div>
+    <div class="hero-sub">بازطراحی کامل تجربه قرآنی برای نسل جوان ایران</div>
+    <div class="verse">﴿ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ ﴾</div>
+    <div class="summary">
+      این سند نقشه راه کامل بازنویسی اپلیکیشن سکینه است؛ از تحلیل رقبا و هویت برند تا طراحی
+      صفحه‌به‌صفحه، راهکار صدای باکیفیت و آفلاین، مدل درآمدی فریمیوم و فازبندی اجرایی.
+      مرجع تصمیم‌گیری مشترک تیم محصول برای شروع بازنویسی از صفر.
+    </div>
+    <div class="meta">
+      <div class="row"><b>تهیه‌شده برای:</b> تیم محصول سکینه</div>
+      <div class="row"><b>نسخه:</b> ۱٫۰ — مهر ۱۴۰۴</div>
+    </div>
+    <div class="chips">
+      <span class="chip">موبایل‌محور</span>
+      <span class="chip">روشن مینیمال لوکس</span>
+      <span class="chip">فریمیوم</span>
+      <span class="chip">صدای Hi-Fi</span>
+    </div>
+    <div class="footer-label"><span>SAKINA · QURAN &amp; CALM</span><span>CONFIDENTIAL</span></div>
+  </div>
+</div>
+
+<!-- ==================== MAIN ==================== -->
+<div class="main-content">
+
+<!-- ---------- EXECUTIVE SUMMARY ---------- -->
+<div class="chapter-header">
+  <span class="num">۰۱</span><span class="title">خلاصه اجرایی</span>
+  <div class="divider"></div>
+</div>
+<p class="lead">اپلیکیشن فعلی سکینه پایه‌ی مفهومی درستی دارد — ترکیب تلاوت، میکسر صداهای محیطی و حالت خواب — اما اجرا، طراحی و هویت آن با بلندپروازی ما فاصله دارد.</p>
+<p>بازبینی کامل نسخه‌ی فعلی نشان می‌دهد سه مشکل بنیادین وجود دارد. نخست، زبان بصری اپ قدیمی و عمومی است؛ چیدمان‌ها شبیه قالب‌های آماده‌اند و حس «لوکس» و «مدرن»ی که کاربر جوان ایرانی از یک اپ پریمیوم انتظار دارد منتقل نمی‌شود. دوم، کیفیت صدای تلاوت پایین است و تجربه‌ی شنیداری — که قلب یک اپ قرآنی-آرامش‌بخش است — را خراب می‌کند. سوم، هویت برند شکل‌نیفته: نام خوبی داریم اما رنگ، فونت، لحن و روایت یکدستی که کاربر را وفادار کند وجود ندارد.</p>
+<p>پاسخ ما به این سه مشکل، <b>بازنویسی کامل از صفر</b> است؛ نه پچ‌کردن کد موجود. تجربه نشان داده که بازطراحی روی شالوده‌ی شکننده فقط هزینه را چند برابر می‌کند. این سند مشخص می‌کند چه می‌سازیم، چرا این‌طور می‌سازیم و به چه ترتیبی جلو می‌رویم تا نسخه‌ی اول طی حدود سه ماه قابل انتشار باشد.</p>
+
+<div class="sub-head">چشم‌انداز محصول</div>
+<p>می‌خواهیم «سکینه» برای نسل جوان ایرانی همان حسی شود که <b>Calm</b> و <b>Headspace</b> برای مخاطب غربی ساخته‌اند — با این تفاوت که قلب تجربه‌ی ما قرآن است، نه صداهای سفارشی. کاربر وقتی اپ را باز می‌کند نباید حس «نرم‌افزار مذهبی اداری» داشته باشد؛ باید حس بازکردن یک فضای شخصی، آرام و لوکس داشته باشد؛ جایی که تلاوت، طبیعت و سکوت با هم ترکیب می‌شوند. قرآن نه به‌عنوان تکلیف، بلکه به‌عنوان پناه روزمره معرفی می‌شود: برای مطالعه، برای خواب، برای لحظه‌های اضطراب.</p>
+
+<div class="kpi-row">
+  <div class="kpi"><div class="v">٪۲۵+</div><div class="l">نگهداشت روز سی‌ام (D30) در شش ماه نخست</div></div>
+  <div class="kpi"><div class="v">۱۹۲k</div><div class="l">بیت‌ریت پیش‌فرض تلاوت + دانلود آفلاین</div></div>
+  <div class="kpi"><div class="v">٪۴-۶</div><div class="l">نرخ تبدیل فریمیوم به پریمیوم تا پایان سال اول</div></div>
+</div>
+
+<div class="sub-head">اصول راهنمای پنج‌گانه</div>
+<ul class="check">
+  <li><b>مینیمال‌گرایی عملکردی:</b> هر عنصر روی صفحه باید کارکرد داشته باشد؛ فضای سفید لوکس است، نه خالی.</li>
+  <li><b>صدا اول:</b> کیفیت شنیداری برابری کیفی بصری است؛ هیچ تلاوتی زیر ۱۲۸ کیلوبیت پخش نمی‌شود.</li>
+  <li><b>فارسی اول:</b> تایپوگرافی فارسی درجه‌یک با فونت وزیرمتن؛ متن عربی با فونت امیری؛ چینش راست‌به‌چپ بومی، نه ترجمه‌شده.</li>
+  <li><b>آفلاین‌فرست:</b> هر چیزی که کاربر یک بار باز کرده، بار دوم بدون اینترنت هم کار کند.</li>
+  <li><b>احترام به کاربر:</b> صفر تبلیغ مزاحم، بدون درخواست‌های پشت‌سرهم، حریم خصوصی واقعی.</li>
+</ul>
+<!-- ---------- SECTION 1: COMPETITORS ---------- -->
+<div class="chapter-header">
+  <span class="num">۰۲</span><span class="title">تحلیل بازار و رقبا</span>
+  <div class="divider"></div>
+</div>
+<p>قبل از هر تصمیم طراحی، باید بدانیم رقبا چه کرده‌اند، کجا موفق شده‌اند و کجا رهایشان کرده‌اند. تحقیق ما سه لایه داشت: رقبای مستقیم در حوزه اپ‌های قرآنی، رقبای ایرانی، و اپ‌های غیرقرآنی که از نظر برندینگ و حس محصول الگوی ما هستند. نتیجه‌ی کلی: بازار اپ قرآنی «پلیر مدرن» هنوز در ایران تقریباً خالی است و این پنجره‌ی طلایی سکینه است.</p>
+
+<div class="sub-head">الگوی مرجع: Quranify</div>
+<div class="card card-accent">
+  <div class="tagline">QURANIFY — QURAN AUDIO PLAYER · iOS &amp; ANDROID</div>
+  <h4>موفق‌ترین نمونه‌ی «پلیر قرآنی» در بازار جهانی</h4>
+  <p>Quranify خودش را «پلیر صوتی قرآن» معرفی می‌کند نه «اپ قرآن»؛ و این دقیقاً کلید موفقیتش است. محصول حول سه حالت مصرف طراحی شده: <b>مطالعه (Study)</b>، <b>خواب (Sleep)</b> و <b>کار (Work)</b> — یعنی به جای فهرست ۱۱۴ سوره، از «می‌خواهم با قرآن چه حسی داشته باشم؟» شروع می‌کند.</p>
+  <p>امکانات کلیدی: بیش از ۱۰۰ قاری انتخابی، متن عربی و تفسیر همگام با صوت، پلی‌لیست‌های کیوریت‌شده، پخش در پس‌زمینه و اشتراک پریمیوم سالانه حدود ۵۰ دلار. درس بزرگش برای ما: <b>بسته‌بندی احساسی</b> قرآن (آرامش، تمرکز، خواب) نرخ دانلود و نگهداشت را چند برابر رویکرد فهرست-و-پخش می‌کند.</p>
+</div>
+
+<div class="sub-head">رقبای جهانی</div>
+<table>
+  <thead><tr><th style="width:22%">اپ</th><th style="width:30%">نقطه قوت</th><th style="width:28%">نقطه ضعف</th><th style="width:20%">درس برای سکینه</th></tr></thead>
+  <tbody>
+    <tr><td><b>Muslim Pro</b></td><td>همه‌در-یکی: نماز، قبله، قرآن با ۴۰+ ترجمه، اوقات شرعی</td><td>شلوغ و تبلیغات‌محور؛ جنجال حریم خصوصی داده‌های مکان</td><td>تمرکز؛ حریم خصوصی به‌عنوان مزیت رقابتی</td></tr>
+    <tr><td><b>Quran Majeed</b></td><td>اعتبار تاریخی، پوشش گسترده قاری و ترجمه</td><td>UI قدیمی، تجربه پلیر ضعیف</td><td>پلیر مدرن = تمایز آسان</td></tr>
+    <tr><td><b>Ayah</b></td><td>بدون تبلیغ، کتابخانه تفسیر قوی، مینیمال</td><td>فاقد تجربه صوتی غنی و حالت‌های مصرف</td><td>مینیمالیسم را جدی بگیر</td></tr>
+    <tr><td><b>Quran.com</b></td><td>استاندارد طلایی خوانش وب، متن‌باز بودن بخشی</td><td>اپ موبایل ضعیف‌تر از وب</td><td>کیفیت خوانش آیه‌به‌آیه</td></tr>
+  </tbody>
+</table>
+
+<div class="sub-head">رقبای ایرانی</div>
+<div class="grid-2">
+  <div class="col"><div class="card">
+    <h4>قرآن فارسی «ذکر»</h4>
+    <p>قوی‌ترین رقیب داخلی از نظر امکانات: تلاوت با روایات مختلف، رنگی‌شدن آیه همراه صوت، دانلود آفلاین. ضعف اصلی: طراحی قدیمی و شلوغ، تجربه موبایل مدرن ندارد و مخاطبش را جوانِ اهل طراحی هدف نگرفته.</p>
+  </div></div>
+  <div class="col"><div class="card">
+    <h4>Quran Pro فارسی و بقیه</h4>
+    <p>اپ‌هایی مثل Quran Pro (۴۰ قاری، ۱۱ ترجمه) و اپ‌های صوتی متفرقه بازار فارسی را پوشش می‌دهند، اما همه یک الگو دارند: فهرست سوره + پخش + ترجمه. هیچ‌کدام «تجربه‌ی آرامش» و میکسر صوتی ندارند؛ این دقیقاً فضای خالی سکینه است.</p>
+  </div></div>
+</div>
+
+<div class="sub-head">درس‌های برندینگ از اپ‌های غیرقرآنی</div>
+<div class="grid-2">
+  <div class="col"><div class="card">
+    <h4>Calm — آبی عمیق و سکوت بصری</h4>
+    <p>Calm با یک رنگ آبی آرام، عکس‌های طبیعت کم‌تحرک و انیمیشن‌های بسیار کند، حس «فرود آمدن» می‌سازد. درس ما: سرعت انیمیشن و فضای سفید به‌اندازه‌ی رنگ در القای آرامش مؤثرند.</p>
+  </div></div>
+  <div class="col"><div class="card">
+    <h4>Headspace — جسارت متفاوت بودن</h4>
+    <p>در بحرانی از اپ‌های آبی، Headspace نارنجی شد و در ذهن‌ها ماند. درس ما: تقلید نکنیم؛ سبز زمردی روی کرم گرم در دسته‌بندی «اپ قرآنی» که اکثراً سبز/آبی تیره و شلوغ‌اند، خودش تمایز است.</p>
+  </div></div>
+</div>
+<div class="card card-brass">
+  <h4>Spotify — پلیر به‌عنوان قلب محصول</h4>
+  <p>Spotify ثابت کرده پلیر تمام‌صفحه می‌تواند خانه‌ی احساسی اپ باشد: کاور بزرگ، کنترل حداقلی، پیشرفت ظریف. ما همین زبان را با متن زنده‌ی آیه و تایپوگرافی امیری ترکیب می‌کنیم تا پلیر سکینه متمایز شود.</p>
+</div>
+
+<div class="callout"><b>جمع‌بندی شکاف بازار:</b> هیچ اپی در بازار فارسی‌زبان، «قرآن + آرامش + طراحی لوکس مدرن» را یک‌جا ارائه نمی‌دهد. رقبای جهانی از لحاظ فرهنگی و زبان دورند و رقبای ایرانی از لحاظ طراحی عقب‌اند. جایگاه سکینه: <b>پلیر قرآنی لوکس برای نسل جوان ایران</b>.</div>
+<!-- ---------- SECTION 3: BRAND IDENTITY ---------- -->
+<div class="chapter-header">
+  <span class="num">۰۳</span><span class="title">هویت برند و زبان بصری</span>
+  <div class="divider"></div>
+</div>
+<p class="lead">برند فقط لوگو نیست؛ مجموعه‌ی تصمیم‌های تکرارشدنی است که کاربر را به «حس خانه‌گرفتن» می‌رساند. این بخش آن تصمیم‌ها را قطعی می‌کند.</p>
+
+<div class="sub-head">نام، روایت و لحن</div>
+<p>نام «سکینه» از مفهوم قرآنی سکینه (آرامش قلبی) گرفته شده و دقیقاً همان وعده‌ای است که محصول می‌دهد؛ این هم‌راستایی نام-وعده موهبتی است که بیشتر رقبا ندارند. روایت برند در یک جمله چنین تعریف می‌شود: <b>«پناهگاه آرام تو، برای هر لحظه‌ی روز»</b>. لحن برند در تمام متن‌های محصول (آنبوردینگ، نوتیفیکیشن، حالت‌های خالی، پیام‌های خطا) باید محترمانه، شاعرانه اما ساده باشد؛ از تعبیرهای اغراق‌آمیز تبلیغاتی پرهیز می‌کنیم و به‌جای «بهترین اپ قرآن!» می‌گوییم «جایی برای نفس کشیدن». این لحن در زبان فارسی اصیل نوشته می‌شود، نه ترجمه‌ی تحت‌اللفظی از انگلیسی.</p>
+
+<div class="sub-head">پالت رنگ</div>
+<div class="swatch-row">
+  <div class="swatch"><div class="color" style="background:#FAF9F6;border-bottom:1px solid #E4E0D6"></div><div class="info"><b>کرمِ بوم</b>#FAF9F6 — پس‌زمینه اصلی؛ گرم، روشن، لوکس</div></div>
+  <div class="swatch"><div class="color" style="background:#1D7860"></div><div class="info"><b>سبز زمردی</b>#1D7860 — رنگ اصلی برند و کنش‌ها</div></div>
+  <div class="swatch"><div class="color" style="background:#31594D"></div><div class="info"><b>سبز عمیق</b>#31594D — هدرها و سطوح تیره</div></div>
+  <div class="swatch"><div class="color" style="background:#A2813F"></div><div class="info"><b>برنز</b>#A2813F — اکسنت لوکس؛ آیات و نشان‌های ویژه</div></div>
+  <div class="swatch"><div class="color" style="background:#1C211F"></div><div class="info"><b>زغالی</b>#1C211F — متن اصلی؛ نه مشکی مطلق</div></div>
+</div>
+<p>انتخاب «کرم + سبز زمردی + برنز» یک تصمیم رقابتی است: دسته‌ی اپ‌های قرآنی به سبز/آبی تیره و شلوغ معروف‌اند؛ ما همان خانواده‌ی معنایی (سبز = آرامش و معنویت) را با روشنایی و گرمای لوکس بازتعریف می‌کنیم. قانون‌های استفاده ساده و سخت‌گیرانه است: پس‌زمینه‌ها همیشه کرم یا سفید، سبز زمردی فقط برای کنش‌های اصلی، و برنز تنها برای لحظه‌های ویژه (آیه روز، نشان پریمیوم) تا ارزشش حفظ شود. نسخه‌ی تیره هم تعریف‌شده دارد: پس‌زمینه‌ی زغالی سبزفام <b>#101513</b>، متن کرم روشن، و همان زمردی با روشنایی بیشتر برای کنتراست — مشکی مطلق و خاکستری کم‌کنتراست ممنوع.</p>
+
+<div class="sub-head">تایپوگرافی</div>
+<div class="type-row"><div class="sample" style="font-size:26px;font-weight:900;">سَکینه — تیتر قهرمان (Vazirmatn Black)</div><div class="spec">Vazirmatn Black 900<br>۳۲–۴۸px · لیدینگ ۱٫۳</div></div>
+<div class="type-row"><div class="sample" style="font-size:19px;font-weight:700;">تیتر بخش‌ها و کارت‌ها</div><div class="spec">Vazirmatn Bold 700<br>۱۷–۲۲px</div></div>
+<div class="type-row"><div class="sample" style="font-size:15px;font-weight:400;">متن بدنه‌ی رابط؛ روان، خوانا، فاصله‌گذاری فارسی درست</div><div class="spec">Vazirmatn Regular 400<br>۱۴–۱۶px · لیدینگ ۱٫۹</div></div>
+<div class="type-row"><div class="sample" style="font-family:'Amiri',serif;font-size:22px;">﴿ إِنَّ فِي ذَٰلِكَ لَذِكْرَىٰ لِمَن كَانَ قَلْبُهُ قَيِّمٌ ﴾</div><div class="spec">Amiri<br>متن عربی ۲۲–۳۰px</div></div>
+<p>دو خانواده‌ی فونت، دو نقش دارند: <b>وزیرمتن</b> زبان رابط کاربری فارسی است (هر پنج وزن امبد می‌شود) و <b>امیری</b> فقط برای متن عربی آیات استفاده می‌شود تا حس نسخه‌ی چاپی خطاطی حفظ شود. اعداد در تمام رابط با ارقام فارسی (۱۲۳) نمایش داده می‌شوند و چینش تمام صفحات راست‌به‌چپ بومی است. خط کف (baseline) بین عربی و فارسی با فاصله‌ی عمودی بیشتر تنظیم می‌شود تا آیات داخل متن فارسی خفه نشوند.</p>
+
+<div class="sub-head">لوگو، آیکون‌ها و موشن</div>
+<div class="grid-2">
+  <div class="col"><div class="card card-accent">
+    <h4>لوگو و آیکون اپ</h4>
+    <p>نشان اصلی یک <b>ستاره‌ی هشت‌پر هندسی</b> (نقش تکرارشونده در هنر اسلامی) است که در مرکز آن یک دایره‌ی آرام — نماد نفس و سکوت — می‌نشیند. وردمارک «سَکینه» با وزیرمتن Black زیر نشان قرار می‌گیرد. نسخه‌ی مونوگرام برای مواقع فضای کم تعریف می‌شود. پس‌زمینه‌ی آیکون اپ کرم با ستاره‌ی زمردی است تا در میان انبوه آیکون‌های سبز تیره/آبی مارکت‌ها یک‌نگاه متمایز شود.</p>
+  </div></div>
+  <div class="col"><div class="card card-accent">
+    <h4>آیکونوگرافی و موشن</h4>
+    <p>آیکون‌ها خطی (Outline) با ضخامت یکنواخت ۱٫۵px و گوشه‌های نرم‌اند؛ هیچ آیکون توپر مزاحمی در رابط وجود ندارد. زبان موشن از اصول Calm وام می‌گیرد: همه‌ی ترنزیشن‌ها ۲۵۰–۴۰۰ میلی‌ثانیه با easing نرم، بدون هیچ انیمیشن فنری. در پلیر تمام‌صفحه یک تنفس ظریف (Breathing) روی پس‌زمینه اجرا می‌شود که با تمپوی تلاوت همگام حس آرامش را تقویت می‌کند.</p>
+  </div></div>
+</div>
+<div class="callout"><b>قانون طلایی برند:</b> هر عنصر جدیدی که در آینده به محصول اضافه می‌شود باید در «آزمون آرامش» رد شود — اگر انرژی یا شلوغی اضافه کرد، راهش بسته است. لوکس بودن یعنی پرهیز، نه افزودن.</div>
+<!-- ---------- SECTION 4: INFORMATION ARCHITECTURE ---------- -->
+<div class="chapter-header">
+  <span class="num">۰۴</span><span class="title">معماری اطلاعات و ناوبری</span>
+  <div class="divider"></div>
+</div>
+<p class="lead">ساختار اطلاعات سکینه عمداً کم‌عمق و کم‌شمار است: پنج تب، یک پلیر همیشگی، حداکثر سه سطح عمق. آرامش ساختاری هم بخشی از آرامش برند است.</p>
+<p>بازبینی اپ فعلی نشان داد ساختار ناوبری درست انتخاب شده اما جزئیاتش معیوب است: دکمه‌های تب‌بار زیر آیکون‌های SVG پنهان می‌شوند، پلیر مینی روی محتوا شفاف می‌افتد و در حالت تیره متن‌ها خوانایی‌شان را از دست می‌دهند. در بازنویسی، این ساختار حفظ می‌شود اما با استانداردهای صنعت (مناطق لمسی ۴۴ پیکسل، z-index لایه‌بندی‌شده، سطح‌های مات با بلور کنترل‌شده) از صفر پیاده‌سازی می‌گردد. پلیر مینی همیشه قابل‌مشاهده و همیشه قابل‌لمس است و هیچ‌وقت روی متن آیه نمی‌نشیند.</p>
+
+<div class="sub-head">نقشه‌ی ناوبری</div>
+<table>
+  <thead><tr><th style="width:16%">تب</th><th style="width:34%">وظیفه‌ی اصلی</th><th style="width:50%">محتوای کلیدی</th></tr></thead>
+  <tbody>
+    <tr><td><b>خانه</b></td><td>ورود روزانه و شروع سریع</td><td>آیه‌ی روز، «ادامه‌ی گوش دادن»، کارت حالت خواب، پلی‌لیست‌های کیوریت‌شده</td></tr>
+    <tr><td><b>قرآن</b></td><td>یافتن و خواندن آیات</td><td>فهرست ۱۱۴ سوره، جستجوی نام/موضوع، فیلتر مکی-مدنی، نشانگر ادامه‌ی خوانش</td></tr>
+    <tr><td><b>میکسر</b></td><td>ساختن فضای شنیداری</td><td>سه لایه‌ی صدا (تلاوت/طبیعت/پس‌زمینه)، پریست‌ها، تایمر خواب</td></tr>
+    <tr><td><b>کتابخانه</b></td><td>محتوای شخصی کاربر</td><td>پلی‌لیست‌ها، علاقه‌مندی‌ها، دانلودها، آمار شنیدن</td></tr>
+    <tr><td><b>پروفایل</b></td><td>تنظیمات و اشتراک</td><td>وضعیت پریمیوم، صدا و پخش، تم، نوتیفیکیشن، پشتیبانی</td></tr>
+  </tbody>
+</table>
+<p>پلیر تمام‌صفحه از پایین (Bottom Sheet) روی هر تب باز می‌شود و مسیر بازگشت همیشه حفظ است؛ کاربر هرگز از تب جاری «گم» نمی‌شود. سه جریان حیاتی کاربر باید در حداقل لمس ممکن انجام شوند و در طراحی صفحات به‌عنوان معیار سنجش استفاده می‌شوند:</p>
+<ul class="check">
+  <li><b>جریان پخش سریع (۲ لمس):</b> خانه ← دکمه‌ی پخش آیه‌ی روز ← پلیر. کم‌ترین اصطکاک مسیرِ بازکردن روزانه.</li>
+  <li><b>جریان حالت خواب (۳ لمس):</b> خانه ← کارت «حالت خواب» ← انتخاب تلاوت و صدای محیط ← شروع با تایمر پیش‌فرض.</li>
+  <li><b>جریان مطالعه (۲ لمس):</b> قرآن ← سوره ← خوانش با پخش همگام؛ ترجمه با یک سوییچ روشن/خاموش.</li>
+</ul>
+<div class="callout"><b>قانون‌های ناوبری:</b> هیچ مسیر بن‌بستی وجود ندارد؛ عمق بازگشت حداکثر ۳ سطح است؛ «ادامه» (Resume) در خانه همیشه آخرین لحظه‌ی شنیدن را برمی‌گرداند؛ و بازگشت از پلیر تمام‌صفحه هرگز پخش را قطع نمی‌کند — پخش فقط با دستور کاربر می‌ایستد.</div>
+<!-- ---------- SECTION 5: SCREEN-BY-SCREEN UX ---------- -->
+<div class="chapter-header">
+  <span class="num">۰۵</span><span class="title">طراحی صفحه‌به‌صفحه</span>
+  <div class="divider"></div>
+</div>
+<p class="lead">هشت صفحه‌ی هسته‌ای سکینه، یکی‌یکی با هدف، ساختار و جزئیات طراحی تعریف می‌شوند. این مشخصات مرجع مستقیم پیاده‌سازی فاز ۱ و ۲ خواهد بود.</p>
+
+<div class="sub-head">۱. اسپلش و آنبوردینگ</div>
+<div class="card card-accent">
+  <p>اولین برخورد باید حس آمدن به یک فضای آرام بدهد، نه بازکردن یک نرم‌افزار. اسپلش فقط یک ثانیه: پس‌زمینه‌ی کرم، ستاره‌ی هشت‌پر با انیمیشن نفس‌کشنده و وردمارک «سَکینه». آنبوردینگ سه اسلاید کوتاه با یک جمله و یک تصویر آرام است: «آرامش با قرآن»، «صدای باکیفیت، آفلاین»، «فقط برای تو». انتخاب قاری محبوب <b>همان‌جا</b> انجام می‌شود (نه پنهان در تنظیمات) و اجازه‌ی نوتیفیکیشن فقط بعد از توضیح ارزش («یادآوری آیه‌ی آرامش هر صبح») درخواست می‌شود. کاربری که اسلایدها را رد کند هم به انتخاب قاری می‌رسد؛ هیچ مسیرِ بدون شخصی‌سازی وجود ندارد.</p>
+</div>
+
+<div class="sub-head">۲. خانه</div>
+<div class="card card-accent">
+  <p>خانه‌ی سکینه «سالن ورود» است نه فهرست امکانات. از بالا به پایین: کارت آیه‌ی روز با تایپوگرافی امیری روی پس‌زمینه‌ی گرادیان ظریف کرم-سبز و دکمه‌ی پخش بزرگ (شروع با یک لمس)؛ بلوک «ادامه‌ی گوش دادن» که آخرین آیه‌ی پخش‌شده را با پیشرفت نشان می‌دهد؛ کارت بلند «حالت خواب» با گرادیان شبانه و پیش‌نمایش صدای محیط؛ ردیف پلی‌لیست‌های کیوریت‌شده (آرامش اضطراب، تلاوت‌های شب، شفای دل) با کاورهای مینیمال؛ و در انتها دسترسی سریع قاری‌های منتخب. هر کارت فاصله‌ی نفس‌گیرانه دارد؛ تراکم بصری خانه نصف رقبا است و همین تفاوت در اولین نگاه دیده می‌شود.</p>
+</div>
+
+<div class="sub-head">۳. فهرست سوره‌ها</div>
+<div class="card card-accent">
+  <p>فهرست ۱۱۴ سوره با جستجوی شناور در بالا (پیدا کردن با نام عربی، نام فارسی یا موضوع) و دو فیلتر چیپ‌مانند مکی/مدنی. هر ردیف: شماره‌ی سوره داخل نشان هشت‌پر کوچک، نام عربی با فونت امیری، معنی فارسی با وزیرمتن ظریف، تعداد آیات و دکمه‌ی پخش مستقیم. سوره‌ی در حال شنیدن نشانگر پویا و رنگ زمردی دارد و «ادامه‌ی خوانش» بالای فهرست سنجاق شده است. جستجو باید بدون تأخیر فیلتر کند (فهرست کامل در حافظه است) — همان رفتاری که در تست اپ فعلی درست کار می‌کند و حفظ می‌شود.</p>
+</div>
+
+<div class="sub-head">۴. صفحه‌ی خوانش</div>
+<div class="card card-accent">
+  <p>قلب محصول. متن عربی با امیری در اندازه‌ی پیش‌فرض ۲۴ پیکسل (تنظیم‌پذیر از ۱۸ تا ۳۶)، ترجمه‌ی فارسی زیر هر آیه با سوییچ روشن/خاموش، و شماره‌ی آیه داخل نشان ظریف برنزی. آیه‌ی در حال پخش با پس‌زمینه‌ی سبزِ کم‌رنگ و خط سمت راست زمردی هایلایت می‌شود و اسکرول خودکارِ نرم آن را همیشه در مرکز دید نگه می‌دارد (قابل خاموش‌کردن). لمس هر آیه نوار اکشن باز می‌کند: پخش، علاقه‌مندی، کپی، اشتراک و افزودن به پلی‌لیست. نوار پخش چسبانِ پایین مات و با سایه است — ایراد شفافیت پلیر فعلی اینجا برای همیشه حل می‌شود. دانلود آفلاین سوره از منوی بالای صفحه با نمایش حجم برآوردی در دسترس است.</p>
+</div>
+<div class="sub-head">۵. پلیر تمام‌صفحه</div>
+<div class="card card-accent">
+  <p>پلیر، خانه‌ی احساسی اپ است (درس Spotify). پس‌زمینه گرادیان آرام سبز عمیق به زغالی با الگوی هندسی بسیار کم‌رنگ و انیمیشن تنفس؛ بالای صفحه نام سوره و قاری؛ وسط، متن زنده‌ی آیه‌ی در حال پخش با امیری بزرگ — نه کاور آلبوم، بلکه خودِ وحی هنر این صفحه است. پیشرفت آیه با خط نازک برنزی زیر متن؛ کنترل‌ها (قبلی، عقب ۱۰ ثانیه، پخش/توقف بزرگ، جلو ۱۰ ثانیه، بعدی) با منطقه‌ی لمسی سخاوتمندانه. اکشن‌های ثانویه (سوییچ قاری، افزودن به پلی‌لیست، تایمر خواب، میکسر) در ردیف آیکونی ظریف پایین. اسکرین شات‌های تست نسخه فعلی نشان داد کنترل‌ها گاهی با عناصر دیگر تداخل می‌کنند؛ در بازنویسی هر کنترل در لایه‌ی مات اختصاصی خودش قرار می‌گیرد و سوئیپ پایین صفحه پلیر را می‌بندد بدون آنکه پخش را متوقف کند.</p>
+</div>
+
+<div class="sub-head">۶. میکسر</div>
+<div class="card card-accent">
+  <p>ویژگی امضای سکینه و اصلی‌ترین تمایز فنی با همه‌ی رقبا. سه لایه‌ی مستقل با اسلایدر عمودی و ولوم اختصاصی: <b>تلاوت</b> (صدای اصلی)، <b>طبیعت</b> (باران، موج، جنگل، باد) و <b>پس‌زمینه‌ی هارمونیک</b> (پدهای آرام بدون ملودی). بالای میکسرها، شش پریست کیوریت‌شده با نام‌های حس‌محور: «شب بارانی مکه»، «سپیده‌دم»، «جنگل پس از باران» و غیره؛ انتخاب پریست ولوم‌ها را با ترنزیشن نرم تنظیم می‌کند. ویژوالایزر امواج بسیار کم‌رنگ در پس‌زمینه فقط هنگام پخش زنده می‌شود. حالت خواب دکمه‌ی اختصاصی دارد و تایمر (۱۵/۳۰/۴۵/۶۰ دقیقه) با فیدآوت تدریجی صدا را پایان می‌دهد، نه قطع ناگهانی.</p>
+</div>
+
+<div class="sub-head">۷. کتابخانه</div>
+<div class="card card-accent">
+  <p>محتوای شخصی کاربر با پنج زیرتب: پلی‌لیست‌ها، علاقه‌مندی‌ها، دانلودها، تاریخچه و آمار. پلی‌لیست‌ها قابل ساخت، نام‌گذاری و مرتب‌سازی‌اند؛ دانلودها فضای مصرفی هر سوره را نشان می‌دهند و با سوایپ حذف می‌شوند؛ آمار با زبان محبت‌آمیز بیان می‌شود («این هفته ۳ ساعت با قرآن بودی» به‌جای اعداد خشک). حالت‌های خالی — نقطه‌ی ضعف معمول رقبا — با تصویر مینیمال و یک جمله‌ی دعوت‌کننده طراحی می‌شوند: «چیزی برای گوش دادن نداری؛ بگذار آیه‌ی امروز را شروع کنیم».</p>
+</div>
+
+<div class="sub-head">۸. پروفایل و تنظیمات</div>
+<div class="card card-accent">
+  <p>بالای صفحه کارت وضعیت: در نسخه‌ی رایگان «ارتقا به پریمیوم» با مزایای خلاصه و در نسخه‌ی پریمیوم نشان برنزی و تاریخ تمدید. تنظیمات در چهار گروه: <b>صدا و پخش</b> (کیفیت استریم، کیفیت دانلود، گذار بین آیات)، <b>نمایش</b> (تم روشن/تیره/خودکار، اندازه فونت، نمایش ترجمه)، <b>یادآوری‌ها</b> (آیه‌ی صبح، حالت آرامش شبانه) و <b>حساب</b> (بازیابی خرید، پشتیبانی، درباره). تصمیم‌های ترسیم‌شده در تست نسخه فعلی تصحیح می‌شوند: شیت تم در حالت تیره دکمه‌هایش زیر دکمه‌ی بستن گیر می‌کرد — اینجا هر شیت ارتفاع ایمن و ناحیه‌ی هندل جدا دارد.</p>
+</div>
+
+<div class="callout"><b>دسترس‌پذیری و ریسپانسیو:</b> حداقل ناحیه‌ی لمسی ۴۴×۴۴ پیکسل، کنتراست متن حداقل WCAG AA در هر دو تم، پشتیبانی کامل از اندازه‌ی فونت سیستم، و عملکرد ثابت روی عرض‌های مختلف: اپ موبایل تمام‌صفحه است و روی دسکتاپ/تبلت داخل یک ستون خوانا با پس‌زمینه‌ی محیطی نمایش داده می‌شود — نه ستون باریک وسط صفحه‌ی خالی که در نسخه‌ی فعلی دیدیم.</div>
+<!-- ---------- SECTION 6: AUDIO SYSTEM ---------- -->
+<div class="chapter-header">
+  <span class="num">۰۶</span><span class="title">سیستم صوتی</span>
+  <div class="divider"></div>
+</div>
+<p class="lead">سکینه یک محصول شنیداری است؛ معماری صدا بنیادی‌ترین زیرساخت آن است و همه‌چیز به آن وابسته است.</p>
+<p>تلاوت در نسخه‌ی فعلی از CDN عمومی everyayah با کیفیت پایین‌تر پخش می‌شود و میکسر صرفاً در سطح UI لایه‌بندی شده است. بازنویسی، صدا را به سه زیرسیستم مستقل اما ترکیب‌شدنی تقسیم می‌کند که هر کدام مسئولیت روشنی دارند و تست‌پذیری کامل دارند:</p>
+
+<div class="sub-head">معماری سه‌لایه‌ی صدا</div>
+<table>
+  <thead><tr><th style="width:20%">لایه</th><th style="width:40%">محتوا</th><th style="width:40%">الزامات فنی</th></tr></thead>
+  <tbody>
+    <tr><td><b>تلاوت</b></td><td>فایل‌های آیه‌به‌آیه‌ی قاری انتخابی</td><td>پخش پیوسته بدون گپ بین آیات، سرعت ۰٫۷۵× تا ۱٫۲۵×، پس‌زمینه و صفحه‌ی قفل</td></tr>
+    <tr><td><b>طبیعت</b></td><td>باران، موج، جنگل، باد، آتش، شب</td><td>لوپ بدون درز، فید مستقل، هم‌پوشانی چند صدای طبیعت</td></tr>
+    <tr><td><b>پس‌زمینه‌ی هارمونیک</b></td><td>پدهای آرام بدون ملودی و بدون ساز</td><td>ولوم پیش‌فرض پایین، بدون توجه‌خواهی، هماهنگ با تونالیته‌ی ملایم</td></tr>
+  </tbody>
+</table>
+<p>میکسر روی این سه لایه سوار است: هر لایه گین مستقل، کراس‌فید نرم هنگام تغییر پریست، و «میکس ذخیره‌شده» برای بازگشت به فضای مورد علاقه‌ی کاربر. قاعده‌ی طراحی این است که تلاوت هیچ‌وقت پوشیده نشود — صداهای محیطی دکوراسیون هستند، نه رقیب.</p>
+
+<div class="sub-head">کیفیت، منبع و آفلاین</div>
+<div class="grid-2">
+  <div class="col"><div class="card">
+    <h4>کیفیت پیش‌فرض ۱۹۲kbps</h4>
+    <p>استریم پیش‌فرض AAC با بیت‌ریت ۱۹۲ کیلوبیت است؛ نسخه‌ی «صرفه‌جویی» ۶۴ کیلوبیتی برای اینترنت ضعیف یا مصرف داده‌ی بالا در تنظیمات فعال می‌شود. میکسرِ لایه‌های محیطی خودشان فایل‌های فشرده‌ی مخصوص دارند چون لوپ‌های طولانی‌اند. کیفیت بالاتر از این به عنوان مزیت پریمیوم ارائه می‌شود، نه محدودیت آزاردهنده‌ی نسخه‌ی رایگان.</p>
+  </div></div>
+  <div class="col"><div class="card">
+    <h4>منبع صوت و آینده‌ی آن</h4>
+    <p>فاز ۱ از همان منبع عمومی پایدار (everyayah) برای تلاوت‌ها استفاده می‌کند تا وابستگی زیرساختی ایجاد نشود، اما با لایه‌ی پروکسی و کش شخصی‌مان. فاز ۳ به میزبانی CDN اختصاصی مهاجرت می‌کنیم تا نسخه‌های remaster باکیفیت و بعدها قاری‌های اختصاصی سکینه میزبانی شوند. همه‌ی آدرس‌ها نسخه‌دار (Versioned Manifest) هستند تا تعویض منبع بدون آپدیت اپ ممکن باشد.</p>
+  </div></div>
+</div>
+<div class="grid-2">
+  <div class="col"><div class="card">
+    <h4>دانلود آفلاین</h4>
+    <p>دانلود در دو سطح: سوره‌ی کامل یا بازه‌ی دلخواه آیات، با نمایش حجم قبل از شروع. فایل‌ها در فضای اختصاصی اپ با کش هوشمند مدیریت می‌شوند؛ در کمبود فضا، قدیمی‌ترین محتوای شنیده‌نشده (LRU) با اجازه‌ی کاربر پاک می‌شود. دانلود در پس‌زمینه ادامه می‌یابد و قطع اینترنت آن را خراب نمی‌کند — از سرگیری خودکار از محل قطع.</p>
+  </div></div>
+  <div class="col"><div class="card">
+    <h4>حالت خواب و پایداری پخش</h4>
+    <p>تایمر خواب ۱۵/۳۰/۴۵/۶۰ دقیقه‌ای با فیدآوت تدریجی (کاهش ۱۰۰٪ طی ۹۰ ثانیه‌ی آخر). پخش در برخورد تم، سوئیچ اپ و قفل صفحه بدون درز ادامه می‌یابد؛ بعد از قطع هدفون، پخش خودکار مکث می‌کند. این جزئیات، تفاوت «اپ صوتی واقعی» با «دکمه‌ی پخش در صفحه وب» است و در تست‌های پذیرش فاز ۲ الزامی‌اند.</p>
+  </div></div>
+</div>
+<div class="callout"><b>معیار پذیرش صوتی:</b> گپ بین آیات صفر، کرش‌فرِی پخش بالای ۹۹٫۵٪ در جلسه، مصرف باتری در ۶۰ دقیقه پخش پس‌زمینه کمتر از ۵٪ روی گوشی میان‌رده، و تأخیر شروع پخش کمتر از ۵۰۰ میلی‌ثانیه روی Wi-Fi.</div>
+<!-- ---------- SECTION 7: FREEMIUM ---------- -->
+<div class="chapter-header">
+  <span class="num">۰۷</span><span class="title">مدل درآمدی فریمیوم</span>
+  <div class="divider"></div>
+</div>
+<p class="lead">قاعده‌ی اخلاقی ما روشن است: متن قرآن و ترجمه هرگز پشت پی‌وال نمی‌رود. پریمیوم روی «عمق تجربه» فروش می‌رود، نه روی دسترسی به وحی.</p>
+<p>این قاعده هم مسؤولیت شرعی است و هم تصمیم رقابتی: رقبایی که متن یا تفسیر را قفل کرده‌اند اعتماد کاربران فارسی‌زبان را از دست داده‌اند. سکینه رایگانِ سخاوتمندانه دارد تا حلقه‌ی ورود پهن باشد، و پریمیوم برای کاربرانی طراحی شده که سکینه را به عادت روزانه تبدیل کرده‌اند و می‌خواهند تجربه‌شان کامل شود.</p>
+
+<div class="sub-head">تفکیک رایگان و پریمیوم</div>
+<table>
+  <thead><tr><th style="width:34%">قابلیت</th><th style="width:16%">رایگان</th><th style="width:16%">پریمیوم</th><th style="width:34%">توضیح</th></tr></thead>
+  <tbody>
+    <tr><td><b>متن کامل قرآن + ترجمه و تفسیر</b></td><td>✔</td><td>✔</td><td>هرگز قفل نمی‌شود؛ تعهد برند</td></tr>
+    <tr><td><b>قاری‌ها</b></td><td>۵ قاری منتخب</td><td>۱۰۰+ قاری</td><td>رایگان شامل قاری‌های محبوب و شناخته‌شده است</td></tr>
+    <tr><td><b>کیفیت پخش</b></td><td>۱۲۸kbps</td><td>۱۹۲kbps و بالاتر</td><td>رایگان کاملاً شنیدنی؛ پریمیوم «پروازی»</td></tr>
+    <tr><td><b>میکسر</b></td><td>۲ لایه + ۳ پریست</td><td>۳ لایه کامل + همه پریست‌ها + میکس ذخیره‌شده</td><td>پیش‌نمایش ۳۰ ثانیه‌ای پریست‌های قفل در رایگان</td></tr>
+    <tr><td><b>دانلود آفلاین</b></td><td>۳ سوره</td><td>نامحدود + بازه‌ی دلخواه</td><td>۳ سوره برای حس‌کردن ارزش آفلاین کافی است</td></tr>
+    <tr><td><b>حالت خواب پیشرفته</b></td><td>تایمر ۳۰ دقیقه</td><td>تایمر کامل + فیدآوت + ویجت سریع</td><td>—</td></tr>
+    <tr><td><b>تم‌ها</b></td><td>روشن/تیره</td><td>تم‌های محدود کیوریت‌شده</td><td>تم‌های برنزی و شبانه‌ی خاص</td></tr>
+  </tbody>
+</table>
+
+<div class="sub-head">قیمت‌گذاری و پرداخت برای بازار ایران</div>
+<div class="grid-2">
+  <div class="col"><div class="card">
+    <h4>بسته‌های پیشنهادی</h4>
+    <p>ماهانه حدود <b>۷۹ هزار تومان</b>؛ سالانه حدود <b>۴۹۰ هزار تومان</b> (معادل دو ماه هدیه — بسته‌ی پیش‌فرض صفحه‌ی ارتقا)؛ و «خرید دائمی» حدود <b>۱٫۵ میلیون تومان</b> برای کاربرانی که اشتراک را دوست ندارند. قیمت‌ها با A/B تست در فاز ۳ نهایی می‌شوند؛ این اعداد نقطه‌ی شروع مذاکره با واقعیت بازارند، نه رقم مقدس.</p>
+  </div></div>
+  <div class="col"><div class="card">
+    <h4>زیرساخت پرداخت</h4>
+    <p>اندروید از طریق درون‌خرید کافه‌بازار و مایکت؛ iOS با توجه به تحریم فروشگاه اپل ایران، از راهکار استاندارد بازار فارسی (اپ‌های نصب‌شده از وب با پرداخت درون‌اپ اختصاصی) استفاده می‌کند. بازیابی خرید با شماره‌ی تلفن بدون نیاز به ثبت‌نام کامل انجام می‌شود تا اصطکاک حداقلی بماند. یادآوری تمدید شفاف و بدون تاکتیک‌های تاریک است.</p>
+  </div></div>
+</div>
+<div class="callout"><b>موثرترین تبدیل‌کننده‌ها (برگرفته از بنچمارک‌های فریمیوم):</b> تریال ۷ روزه‌ی پریمیوم بعد از «لحظه‌ی عاشق شدن» (ساخت اولین میکس)، پیشنهاد ارتقا فقط بعد از سومین جلسه‌ی شنیدن، و پیمان صفر تبلیغ حتی در نسخه‌ی رایگان — تبلیغ هم آرامش را می‌کشد و هم برند لوکس را. هدف مالی سال اول: ۴ تا ۶ درصد تبدیل، که در نرخ نگهداشت بالای ما قابل قبول و پایدار است.</div>
+<!-- ---------- SECTION 8: TECH STACK ---------- -->
+<div class="chapter-header">
+  <span class="num">۰۸</span><span class="title">پشته فنی</span>
+  <div class="divider"></div>
+</div>
+<p class="lead">نسخه‌ی فعلی سکینه یک PWA وب است؛ خوب برای اثبات ایده، ناکافی برای «اپ صوتی واقعی». مقصد نهایی اپ بومی موبایل با React Native است.</p>
+<p>دلایل مهاجرت از PWA به بومی عملیاتی است، نه سلیقه‌ای: پخش پس‌زمینه‌ی پایدار، کنترل صفحه‌ی قفل، دانلود قابل‌اتکا، ویجت و پوش‌نوتیفیکیشن قابل‌اعتماد، و دسترسی به درون‌خرید بازارها — همه‌ی این‌ها روی وب داخل WebView ایران یا نیمه‌کاره یا غیرممکن است. کد فعلی را دور نمی‌ریزیم: منطق دامنه (فهرست سوره‌ها، جستجو، ساختار میکسر) به‌عنوان مرجع رفتاری بازنویسی می‌شود و تجربه‌ی تست‌شده‌ی ما نقشه‌ی QA نسخه‌ی جدید است.</p>
+
+<div class="sub-head">انتخاب‌های قطعی</div>
+<table>
+  <thead><tr><th style="width:26%">لایه</th><th style="width:30%">انتخاب</th><th style="width:44%">دلیل</th></tr></thead>
+  <tbody>
+    <tr><td><b>فریم‌ورک اپ</b></td><td>React Native + Expo (Dev Build)</td><td>یک کدبیس برای iOS و اندروید؛ اکوسیستم ری‌اکت آشنا؛ اکو-کانفیگ بدون درد</td></tr>
+    <tr><td><b>موتور تلاوت</b></td><td>react-native-track-player</td><td>پخش پس‌زمینه بومی، صفحه قفل، صف آیه‌به‌آیه بدون گپ</td></tr>
+    <tr><td><b>لایه‌های محیطی</b></td><td>موژول بومی میکسر (AudioKit / ExoPlayer)</td><td>ترکیب چند منبع با گین مستقل؛ PWA هرگز این را درست نمی‌کند</td></tr>
+    <tr><td><b>مدیریت وضعیت</b></td><td>Zustand + MMKV</td><td>سبک، سریع، پایداری تنظیمات بدون پیچیدگی ردکس</td></tr>
+    <tr><td><b>داده</b></td><td>SQLite (expo-sqlite) + Manifest نسخه‌دار روی CDN</td><td>آیات، نشان‌ها و پلی‌لیست‌ها آفلاین؛ محتوا بدون آپدیت اپ به‌روز می‌شود</td></tr>
+    <tr><td><b>فونت و UI</b></td><td>وزیرمتن/امیری امبد‌شده + Reanimated 3</td><td>تایپوگرافی فارسی درجه‌یک و موشن ۶۰ فریمی روی میان‌رده‌ها</td></tr>
+    <tr><td><b>مانیتورینگ</b></td><td>Sentry + آنالیتیکس محترمانه (PostHog)</td><td>بدون جمع‌آوری داده‌ی حساس؛ رعایت پیمان حریم خصوصی برند</td></tr>
+  </tbody>
+</table>
+<p>نسخه‌ی وب فعلی بعد از انتشار اپ، نقش «لندینگ و پیش‌نمایش» را می‌گیرد: صفحه‌ی معرفی محصول، لینک دانلود برای هر دو بازار، و نسخه‌ی وب ساده‌ی خوانش برای کاربرانی که هنوز اپ را نصب نکرده‌اند. این تصمیم هزینه‌ی نگهداری دو پلتفرم کامل را حذف می‌کند و انرژی تیم را روی تجربه‌ی موبایل متمرکز نگه می‌دارد.</p>
+<div class="callout"><b>قواعد مهندسی:</b> TypeScript در کل کدبیس؛ CI با بیلد و تست خودکار روی هر PR؛ فونت‌ها و آیکون‌ها فقط از پکیج داخلی design-system (کد تکراری فونت ممنوع)؛ و هر قابلیت صوتی جدید باید روی سه سناریوی قطع‌شده (تم، قطع اینترنت، قطع هدفون) تست شود.</div>
+<!-- ---------- SECTION 9: ROADMAP ---------- -->
+<div class="chapter-header">
+  <span class="num">۰۹</span><span class="title">رودمپ اجرایی</span>
+  <div class="divider"></div>
+</div>
+<p class="lead">پنج فاز از امروز تا انتشار و رشد؛ مجموعاً حدود شش ماه تا نسخه‌ای که هم قابل عرضه است و هم قابل درآمد. هر فاز معیار خروج روشن دارد — فاز بعدی بدون تحقق معیار قبلی شروع نمی‌شود.</p>
+
+<div class="phase">
+  <div class="ph-head"><span class="ph-num">فاز ۰</span><span class="ph-title">بنیان</span><span class="ph-week">هفته ۱–۲</span></div>
+  <ul>
+    <li>استقرار ریپوی اپ (Expo + TypeScript)، CI/CD، قواعد کد و مرور PR</li>
+    <li>ساخت Design System: توکن‌های رنگ و تایپوگرافی، کامپوننت‌های پایه (دکمه، کارت، شیت، تب‌بار)</li>
+    <li>اسپایک فنی صدا: اثبات پخش پس‌زمینه + میکسر دو لایه روی هر دو پلتفرم</li>
+  </ul>
+</div>
+<div class="phase">
+  <div class="ph-head"><span class="ph-num">فاز ۱</span><span class="ph-title">MVP هسته</span><span class="ph-week">هفته ۳–۸</span></div>
+  <ul>
+    <li>آنبوردینگ، خانه، فهرست سوره‌ها با جستجو، صفحه‌ی خوانش با ترجمه و هایلایت همگام</li>
+    <li>پلیر با پخش آیه‌به‌آیه بدون گپ، سوییچ قاری (۵ قاری رایگان)، ادامه‌ی گوش دادن</li>
+    <li>معیار خروج: هر سه جریان حیاتی (پخش سریع/خواب/مطالعه) بی‌نقص؛ کرش‌فری بالای ۹۹٫۵٪ در بتای داخلی</li>
+  </ul>
+</div>
+<div class="phase">
+  <div class="ph-head"><span class="ph-num">فاز ۲</span><span class="ph-title">تجربه‌ی کامل</span><span class="ph-week">هفته ۹–۱۲</span></div>
+  <ul>
+    <li>میکسر کامل سه‌لایه + پریست‌ها + حالت خواب با فیدآوت</li>
+    <li>دانلود آفلاین با مدیریت فضا، تم تیره کامل، کتابخانه (پلی‌لیست/علاقه‌مندی/آمار)</li>
+    <li>معیار خروج: معیارهای پذیرش صوتی بخش ۰۶ محقق؛ تست میدانی روی ۱۰ گوشی متنوع بازار ایران</li>
+  </ul>
+</div>
+<div class="phase">
+  <div class="ph-head"><span class="ph-num">فاز ۳</span><span class="ph-title">انتشار و درآمد</span><span class="ph-week">ماه ۴</span></div>
+  <ul>
+    <li>انتشار در کافه‌بازار و مایکت + صفحۀ وب لندینگ</li>
+    <li>پیاده‌سازی پریمیوم: درون‌خرید، تریال ۷ روزه، بازیابی خرید</li>
+    <li>معیار خروج: نرخ تبدیل ۳–۵٪ در ماه اول، رتبه‌بندی بالای ۴٫۴ در بازار</li>
+  </ul>
+</div>
+<div class="phase">
+  <div class="ph-head"><span class="ph-num">فاز ۴</span><span class="ph-title">رشد</span><span class="ph-week">ماه ۵–۶</span></div>
+  <ul>
+    <li>ویجت آیۀ روز، یادآوری صبح با پوش، کارت‌های اشتراک‌گذاری آیه (اینستاگرام/واتساپ)</li>
+    <li>مهاجرت صوت به CDN اختصاصی + قاری‌های اختصاصی؛ تم‌های پریمیوم</li>
+    <li>معیار خروج: D30 بالای ۲۵٪، رشد ارگانیک هفتگی مثبت، مسیر درآمد قابل پیش‌بینی</li>
+  </ul>
+</div>
+
+<div class="kpi-row">
+  <div class="kpi"><div class="v">۱۲</div><div class="l">هفته تا MVP کامل (فازهای ۰–۲)</div></div>
+  <div class="kpi"><div class="v">٪۳-۵</div><div class="l">تبدیل در ماه نخست انتشار</div></div>
+  <div class="kpi"><div class="v">٪۲۵+</div><div class="l">هدف نگهداشت D۳۰ تا پایان فاز ۴</div></div>
+  <div class="kpi"><div class="v">۴٫۴+</div><div class="l">امتیاز بازار در سه ماه اول</div></div>
+</div>
+
+<div class="quote">«قرآنِ آرام، وقتی با احترام و حُسن‌ذوق ارائه شود، خودش بهترین قصه‌ی دانلود شدن است.»</div>
+
+<div class="card card-brass">
+  <h4>ریسک‌های اصلی و پادزهر</h4>
+  <p><b>وابستگی به منبع صوت عمومی:</b> لایه‌ی پروکسی و کش از هفته‌ی اول + مهاجرت برنامه‌ریزی‌شده به CDN خودمان در فاز ۴. <b>تحریم و پرداخت iOS:</b> راهکار پرداخت وب‌محور بازارهای فارسی از روز اول در طرح، نه به‌عنوان پچ بعدی. <b>شبیه‌سازی توسط رقبا:</b> مزیت ما اجراست — برند، کیفیت صدا و ریتم انتشار؛ کپی‌کردن حس لوکس سخت‌تر از کپی‌کردن فهرست امکانات است. <b>فرسودگی تیم:</b> معیارهای خروج فازها به این معناست که نسخه‌ی منتشرنشده هرگز «تقریباً آماده» شمرده نمی‌شود؛ دامنه‌ی هر فاز قفل است و وسوسه‌ی افزودن امکانات به MVP پاسخ روشن دارد: نه.</p>
+</div>
+</div>
+<!-- ==================== ENDING ==================== -->
+<div class="ending">
+  <svg class="star" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#FFFFFF" stroke-width="1.2">
+      <rect x="15" y="15" width="70" height="70"/>
+      <rect x="15" y="15" width="70" height="70" transform="rotate(45 50 50)"/>
+      <circle cx="50" cy="50" r="30"/>
+    </g>
+  </svg>
+  <div class="big">بیایید سکینه را بسازیم؛<br>جایی که قرآن، آرامش می‌شود.</div>
+  <div class="small">این سند مرجع مشترک تیم محصول است. هر تصمیم جدید باید با همین چشم‌انداز، همین زبان بصری و همین استانداردها سازگار باشد.</div>
+  <div class="brand">SAKINA</div>
+  <div class="ver">بریف محصول · نسخه ۱٫۰ · مهر ۱۴۰۴</div>
+</div>
+</body>
+</html>

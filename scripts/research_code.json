@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Best_practices",
+    "name": "Web Audio API best practices - Web APIs - MDN Web Docs",
+    "snippet": "In this article, we'll share a number of best practices — guidelines, tips, and tricks for working with the Web Audio API. Missing:  html5  seamless  gapless  nature",
+    "host_name": "developer.mozilla.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://stackoverflow.com/questions/7330023/gapless-looping-audio-html5",
+    "name": "gapless looping audio html5 - javascript - Stack Overflow",
+    "snippet": "Gapless uses web audio then HTML5 as a fallback, so it does not work on everything. Seamless has a buffering concept, options worth looking ... Missing:  nature  practice",
+    "host_name": "stackoverflow.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://jackyef.com/posts/building-an-audio-loop-player-on-the-web",
+    "name": "Building an Audio-loop Player on the Web ♻️",
+    "snippet": "Playing the audio file with the Web Audio API allows us to work around the issue of the  element, we are now able to have a gapless audio loop! Missing:  html5  best  practice",
+    "host_name": "jackyef.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mcpmarket.com/tools/skills/seamless-web-audio-loops",
+    "name": "Seamless Web Audio Loops Claude Code Skill - MCP Market",
+    "snippet": "Create gapless web audio loops with the Audio Loop Claude Code skill. Normalize loudness, fix stereo balance, and generate ready-to-use Web Audio JS ... Missing:  html5  nature  sound  mixer",
+    "host_name": "mcpmarket.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://developer.chrome.com/blog/html5-audio-and-the-web-audio-api-are-bffs",
+    "name": "HTML5 audio and the Web Audio API are BFFs | Blog",
+    "snippet": "createMediaElementSource() allows you to combine HTML5 with the visualization, filter, and processing power of the Web Audio API.",
+    "host_name": "developer.chrome.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/Monogatari/Monogatari/issues/143",
+    "name": "Use WebAudio API to loop music (to guarantee gapless loop)",
+    "snippet": "I suggest this function is updated to use Web Audio API instead and guarantee a perfect loop, accurately down to the single sample level. I will ... Missing:  seamless  nature  sound  mixer  practice",
+    "host_name": "github.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://www.poper.ai/blog/audio-player-ux-best-practices",
+    "name": "Audio Player UX: 9 Patterns That Get People to Hit Play - Poper",
+    "snippet": "The play control, the progress bar, and the styling all live in a drag and drop editor instead of in your own CSS, so resizing the play button or changing ... Missing:  seek  response",
+    "host_name": "www.poper.ai",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/jplayer/jPlayer/issues/282",
+    "name": "Modern real time dragging progress seek bar #282 - GitHub",
+    "snippet": "Just drag left and right the white round seeking button; great effect when audio is playing too. i didn't try for the volume button yet ... Missing:  mobile  UX  pattern",
+    "host_name": "github.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/UIUX/comments/1ervwix/uxui_advice_for_audio_player_progress_bar_design",
+    "name": "UX/UI advice for audio player progress bar design - Reddit",
+    "snippet": "Do you have any ideas on how to manage the UX/UI for the progress bar when the full audio is generated but the audio has already begun playing? Missing:  instant  drag  pattern",
+    "host_name": "www.reddit.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/justinmind/how-to-quickly-prototype-progress-bars-for-multiple-use-cases-b721afd92418",
+    "name": "How to quickly prototype progress bars for multiple use cases",
+    "snippet": "Create a new mobile prototype and choose your own dimensions. Design a play button Drag an ellipse widget onto the canvas. Then drag a triangle ... Missing:  seek  instant",
+    "host_name": "medium.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://stackoverflow.com/questions/35407578/how-to-control-the-audio-using-android-media-player-seek-bar",
+    "name": "How to control the audio using Android Media Player seek bar?",
+    "snippet": "My problem is I cannot control the track using the progress bar. I want to playing audio track to update depending of where I drag the progress ... Missing:  UX  | Show results with:",
+    "host_name": "stackoverflow.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://dribbble.com/search/player-progress-bar",
+    "name": "player progress bar - Dribbble",
+    "snippet": "Explore thousands of high-quality player progress bar images on Dribbble. Your resource to get inspired, discover and connect with designers worldwide. Missing:  response  drag  pattern",
+    "host_name": "dribbble.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]
