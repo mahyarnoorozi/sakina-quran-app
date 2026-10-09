@@ -56,7 +56,7 @@ export const useSettingsStore = create<SettingsState>()(
       resetAll: () =>
         set({
           onboardingDone: false,
-          theme: "light",
+          theme: "dark",
           fontSize: 24,
           showTranslation: true,
           autoScroll: true,

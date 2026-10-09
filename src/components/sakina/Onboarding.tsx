@@ -114,7 +114,7 @@ export function Onboarding({ onDone }: { onDone: () => void }) {
                 { }
                 <img src={photos[slide]} alt="" className="w-full h-64 object-cover opacity-85" />
                 <div className="relative p-6 pt-8 min-h-[190px] flex flex-col items-center justify-end">
-                  <div className="text-4xl text-[#E2C288] mb-4 font-quran">{s.emoji}</div>
+                  <div className="text-4xl text-brand-brass mb-4 font-quran">{s.emoji}</div>
                   <h1 className="text-2xl font-black text-white mb-3">{s.title}</h1>
                   <p className="text-[13px] text-white/75 leading-7">{s.body}</p>
                 </div>
@@ -132,7 +132,7 @@ export function Onboarding({ onDone }: { onDone: () => void }) {
                 aria-label={`اسلاید ${i + 1}`}
                 className={cn(
                   "h-2 rounded-full transition-all duration-300 min-h-2 min-w-2",
-                  i === slide ? "w-7 bg-[#C9A45C]" : "w-2 bg-border"
+                  i === slide ? "w-7 bg-brand-brass" : "w-2 bg-border"
                 )}
               />
             ))}
@@ -175,12 +175,12 @@ export function Onboarding({ onDone }: { onDone: () => void }) {
                 className={cn(
                   "relative rounded-2xl border p-3 text-right transition-all duration-200 min-h-[110px]",
                   selected
-                    ? "border-[#C9A45C]/70 bg-[#C9A45C]/5 shadow-glow"
+                    ? "border-brand-brass/70 bg-brand-brass/5 shadow-glow"
                     : "border-border bg-card hover:border-primary/40"
                 )}
               >
                 {selected && (
-                  <span className="absolute top-3 left-3 flex items-center justify-center w-5 h-5 rounded-full bg-[#C9A45C] text-[#14100A]">
+                  <span className="absolute top-3 left-3 flex items-center justify-center w-5 h-5 rounded-full bg-brand-brass text-[#14100A]">
                     <Check className="w-3 h-3" />
                   </span>
                 )}

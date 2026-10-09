@@ -11,7 +11,7 @@
  * هر ضربه از طریق PlayerBridge همان فریم به AudioEngine می‌رسد.
  */
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { surahs } from "@/data/quran";
 import { reciters, collections, soundNameOf } from "@/data/audio";
@@ -20,14 +20,16 @@ import { usePlayerStore } from "@/store/player";
 import { StarMark } from "./Logo";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
-import { Bird, ChevronLeft, CloudRain, Flame, ListMusic, Moon, Sparkles, VolumeX, Waves } from "lucide-react";
+import {
+  Bird, BookOpenText, ChevronLeft, CloudRain, Flame, ListMusic, Moon, Sparkles, VolumeX, Waves,
+} from "lucide-react";
 import { PauseGlyph, PlayGlyph } from "./PlayPauseIcon";
 import { HSlider } from "./HSlider";
 import { SurahPickerSheet } from "./SurahPickerSheet";
 import { ReciterSheet } from "./ReciterSheet";
 
-/** سوره‌های محبوب — دسترسی یک‌ضربی بدون ورود به فهرست */
-const POPULAR = [36, 67, 55, 56, 18, 1] as const;
+/** سوره‌های محبوب — دسترسی یک‌ضربی؛ فاتحه اول تا چیپ فعال همیشه جلوی چشم باشد */
+const POPULAR = [1, 36, 67, 55, 56, 18] as const;
 
 /** چیپ‌های لایه آرامش — هم‌تعداد Quranify (۴ صدا) + خاموش */
 const SOUND_CHIPS = [
@@ -62,6 +64,7 @@ export function HomeTab({ onOpenSleep }: { onOpenSleep: () => void }) {
   const lastPlayedAt = usePlayerStore((s) => s.lastPlayedAt);
   const setAmbient = usePlayerStore((s) => s.setAmbient);
   const showResume = lastPlayedAt > 0 && Date.now() - lastPlayedAt < 7 * 86400_000;
+  const surahChipRef = useRef<HTMLDivElement>(null);
 
   const surah = surahs.find((s) => s.id === surahId) ?? surahs[0];
   const reciter = reciters.find((r) => r.id === reciterId);
@@ -81,6 +84,15 @@ export function HomeTab({ onOpenSleep }: { onOpenSleep: () => void }) {
   const ctaLabel = isPlaying
     ? "در حال پخش"
     : `پخش ${surah.persianName}${activeSound ? ` با ${activeSound}` : ""}`;
+
+  // چیپ فعال همیشه داخل دید باشد (اصلاح A3 — بدون بریدگی در لبه)
+  useEffect(() => {
+    if (typeof surahId !== "number") return;
+    const el = surahChipRef.current?.querySelector<HTMLElement>(
+      `[data-surah-chip="${surahId}"]`
+    );
+    el?.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" });
+  }, [surahId]);
 
   const pickSound = (id: string | null) => {
     setAmbient(id);
@@ -107,49 +119,42 @@ export function HomeTab({ onOpenSleep }: { onOpenSleep: () => void }) {
 
       {/* ===== جلسه‌ساز ===== */}
       <section className="px-4 mt-2" aria-label="ساخت جلسه شنیدن">
-        <div className="photo-card rounded-[28px] shadow-elevated animate-fade-up">
-          <Image
-            src="/images/collections/night.jpg"
-            alt=""
-            width={800}
-            height={640}
-            priority
-            className="opacity-90"
-          />
+        <div className="session-surface rounded-[28px] animate-fade-up">
           <div className="relative p-5 pt-6 flex flex-col min-h-[400px]">
             <div className="flex items-center justify-between">
-              <span className="glass inline-flex items-center gap-1.5 text-[11px] font-bold text-[#E2C288] rounded-full px-3 py-1.5">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-brand-brass rounded-full px-3 py-1.5 bg-brand-brass/10 border border-brand-brass/25">
                 <Sparkles className="w-3.5 h-3.5" />
                 جلسه‌ات را بساز
               </span>
               {isPlaying && (
-                <span className="glass inline-flex items-center gap-1.5 text-[10px] font-bold text-white/85 rounded-full px-3 py-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#7FD6B8] animate-pulse" />
+                <span className="inline-flex items-center gap-1.5 text-[10px] font-bold rounded-full px-3 py-1.5 border" style={{ color: "var(--live)", borderColor: "color-mix(in srgb, var(--live) 40%, transparent)", background: "color-mix(in srgb, var(--live) 10%, transparent)" }}>
+                  <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "var(--live)" }} />
                   زنده
                 </span>
               )}
             </div>
 
-            <h2 className="mt-4 text-[20px] font-black text-white leading-8">
+            <h2 className="mt-4 text-[20px] font-black leading-8">
               {heroTitle}
             </h2>
 
             {/* گام ۱ — تلاوت */}
             <div className="mt-4" role="group" aria-label="انتخاب تلاوت">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[11px] font-bold text-white/65">
+                <span className="text-[11px] font-bold text-brand-ink-muted">
                   ۱ · تلاوت
                 </span>
-                <span className="text-[11px] font-bold text-[#E2C288]">
+                <span className="text-[11px] font-bold text-brand-brass">
                   {surah.persianName} · آیه {toPersianDigits(ayah)}
                 </span>
               </div>
-              <div className="flex gap-2 overflow-x-auto no-scrollbar pb-0.5">
+              <div ref={surahChipRef} className="flex gap-2 overflow-x-auto no-scrollbar fade-x pb-0.5">
                 {POPULAR.map((id) => {
                   const s = surahs.find((x) => x.id === id)!;
                   return (
                     <button
                       key={id}
+                      data-surah-chip={id}
                       onClick={() => play(id, 1)}
                       aria-pressed={surahId === id}
                       className="ds-chip ds-chip--glass"
@@ -173,16 +178,16 @@ export function HomeTab({ onOpenSleep }: { onOpenSleep: () => void }) {
             {/* گام ۲ — لایه آرامش */}
             <div className="mt-4" role="group" aria-label="لایه آرامش">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[11px] font-bold text-white/65">
+                <span className="text-[11px] font-bold text-brand-ink-muted">
                   ۲ · لایه‌ی آرامش
                 </span>
                 {activeSound && (
-                  <span className="text-[11px] font-bold text-[#E2C288]">
+                  <span className="text-[11px] font-bold text-brand-brass">
                     {activeSound}
                   </span>
                 )}
               </div>
-              <div className="flex gap-2 overflow-x-auto no-scrollbar pb-0.5">
+              <div className="flex gap-2 overflow-x-auto no-scrollbar fade-x pb-0.5">
                 {SOUND_CHIPS.map(({ id, icon: Icon, label }) => {
                   const active = ambientSoundId === id;
                   return (
@@ -229,11 +234,11 @@ export function HomeTab({ onOpenSleep }: { onOpenSleep: () => void }) {
                 )}
                 {ctaLabel}
               </button>
-              <div className="mt-2.5 flex items-center justify-between text-[11px] text-white/60">
+              <div className="mt-2.5 flex items-center justify-between text-[11px] text-brand-ink-muted">
                 <span>با صدای {reciter?.name ?? "قاری"}</span>
                 <button
                   onClick={() => setReciterSheet(true)}
-                  className="font-bold text-[#E2C288] inline-flex items-center gap-0.5"
+                  className="font-bold text-brand-brass inline-flex items-center gap-0.5"
                 >
                   تغییر قاری
                   <ChevronLeft className="w-3.5 h-3.5" />
@@ -269,59 +274,45 @@ export function HomeTab({ onOpenSleep }: { onOpenSleep: () => void }) {
         </section>
       )}
 
-      {/* دو کارت نیم‌عرض: حالت خواب + آیه امروز */}
+      {/* دو کارت نیم‌عرض: حالت خواب + آیه امروز — بدون عکس، آرام و یکدست */}
       <section className="px-4 mt-4 grid grid-cols-2 gap-3" aria-label="میانبرها">
         <button
           onClick={onOpenSleep}
-          className="photo-card tap rounded-3xl text-right shadow-card block"
+          className="ds-card tap rounded-3xl text-right p-4 min-h-[116px] flex flex-col items-start justify-between hover:border-primary/30 transition-colors"
           aria-label="حالت خواب"
         >
-          <Image
-            src="/images/collections/mosque.jpg"
-            alt=""
-            width={400}
-            height={240}
-            className="opacity-85"
-          />
-          <div className="relative p-3.5 pt-12 min-h-[108px] flex flex-col justify-end">
-            <span className="glass w-8 h-8 rounded-xl flex items-center justify-center text-[#E2C288] mb-2">
-              <Moon className="w-4 h-4" />
-            </span>
-            <span className="block text-[13px] font-black text-white">حالت خواب</span>
-            <span className="block text-[10px] text-white/70 mt-0.5">
+          <span className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+            <Moon className="w-[18px] h-[18px]" />
+          </span>
+          <span>
+            <span className="block text-[13px] font-black">حالت خواب</span>
+            <span className="block text-[10.5px] text-brand-ink-muted mt-0.5">
               تلاوت نرم + محو تدریجی
             </span>
-          </div>
+          </span>
         </button>
 
         <button
           onClick={() => vod && (vodPlaying ? toggle() : play(vod.surahId, vod.ayah))}
-          className="photo-card tap rounded-3xl text-right shadow-card block"
+          className="ds-card tap rounded-3xl text-right p-4 min-h-[116px] flex flex-col items-start justify-between hover:border-primary/30 transition-colors"
           aria-label="آیه امروز"
         >
-          <Image
-            src="/images/collections/islamic1.jpg"
-            alt=""
-            width={400}
-            height={240}
-            className="opacity-85"
-          />
-          <div className="relative p-3.5 pt-12 min-h-[108px] flex flex-col justify-end">
-            <span className="glass w-8 h-8 rounded-xl flex items-center justify-center text-[#E2C288] mb-2">
-              <Sparkles className="w-4 h-4" />
-            </span>
-            <span className="block text-[13px] font-black text-white">آیه‌ی امروز</span>
-            <span className="block text-[10px] text-white/70 mt-0.5 truncate">
+          <span className="w-9 h-9 rounded-xl bg-brand-brass/12 text-brand-brass flex items-center justify-center">
+            <BookOpenText className="w-[18px] h-[18px]" />
+          </span>
+          <span className="min-w-0">
+            <span className="block text-[13px] font-black">آیه‌ی امروز</span>
+            <span className="block text-[10.5px] text-brand-ink-muted mt-0.5 truncate">
               {vod ? vod.ref : "…"}
             </span>
-          </div>
+          </span>
         </button>
       </section>
 
       {/* کولکشن‌ها */}
       <section className="mt-6" aria-label="پلی‌لیست‌های کیوریت‌شده">
         <h2 className="ds-section-title px-4 mb-3">برای حال‌وهوای تو</h2>
-        <div className="flex gap-3 overflow-x-auto no-scrollbar px-4 pb-2">
+        <div className="flex gap-3 overflow-x-auto no-scrollbar fade-x px-4 pb-2">
           {collections.slice(0, 6).map((c) => (
             <button
               key={c.id}
@@ -375,12 +366,12 @@ export function HomeTab({ onOpenSleep }: { onOpenSleep: () => void }) {
                 <span
                   className={cn(
                     "relative w-[68px] h-[68px] rounded-full overflow-hidden ring-2 ring-offset-2 ring-offset-background transition-all shadow-card",
-                    active ? "ring-[#C9A45C]" : "ring-transparent"
+                    active ? "ring-brand-brass" : "ring-transparent"
                   )}
                 >
                   <Image
                     src={r.image}
-                    alt={r.name}
+                    alt=""
                     width={136}
                     height={136}
                     className="object-cover w-full h-full"
@@ -389,7 +380,7 @@ export function HomeTab({ onOpenSleep }: { onOpenSleep: () => void }) {
                 <span
                   className={cn(
                     "text-[10px] font-bold text-center leading-4 line-clamp-2",
-                    active ? "text-[#C9A45C]" : "text-brand-ink-muted"
+                    active ? "text-brand-brass" : "text-brand-ink-muted"
                   )}
                 >
                   {r.name}

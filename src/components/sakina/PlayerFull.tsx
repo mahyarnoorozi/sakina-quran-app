@@ -113,7 +113,7 @@ export function PlayerFull() {
         onDragEnd={(_, info) => {
           if (info.offset.y > 110) setExpanded(false);
         }}
-        className="player-stage fixed inset-0 z-[70] flex flex-col text-[#EFEDE6]"
+        className="player-stage fixed inset-0 z-[70] flex flex-col stage-ink"
         style={{ position: "fixed", top: 0, bottom: 0, left: 0, right: 0, zIndex: 70 }}
       >
         {reciter?.image && (
@@ -144,7 +144,7 @@ export function PlayerFull() {
               <ChevronDown className="w-6 h-6" />
             </button>
             <div className="text-center min-w-0 px-2">
-              <div className="text-[10px] font-semibold text-white/50 tracking-wide">
+              <div className="text-[10px] font-semibold stage-ink-muted tracking-wide">
                 در حال پخش
               </div>
               <div className="text-[15px] font-black truncate">{surah?.arabicName}</div>
@@ -172,16 +172,16 @@ export function PlayerFull() {
                   {verse.arabic}
                 </p>
                 <p
-                  className="mt-4 text-[#9DB8AC] leading-7 max-w-md"
+                  className="mt-4 stage-translation leading-7 max-w-md"
                   style={{ fontSize: "clamp(12px, 3.4vw, 14px)" }}
                 >
                   {verse.persian}
                 </p>
               </>
             ) : (
-              <div className="animate-pulse text-[#9DB8AC] text-sm">در حال بارگذاری آیه…</div>
+              <div className="animate-pulse stage-ink-muted text-sm">در حال بارگذاری آیه…</div>
             )}
-            <div className="mt-5 inline-flex shrink-0 items-center gap-2 text-[11px] font-semibold text-[#E2C288] glass rounded-full px-4 py-1.5">
+            <div className="mt-5 inline-flex shrink-0 items-center gap-2 text-[11px] font-semibold text-brand-brass glass rounded-full px-4 py-1.5">
               آیه {toPersianDigits(ayah)} از {toPersianDigits(surah?.versesCount ?? 0)}
             </div>
           </div>
@@ -194,18 +194,18 @@ export function PlayerFull() {
               <img
                 src={reciter.image}
                 alt=""
-                className="w-11 h-11 rounded-full object-cover shrink-0 border border-white/15"
+                className="w-11 h-11 rounded-full object-cover shrink-0 border border-border"
               />
             ) : (
-              <span className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                <UserRound className="w-5 h-5 text-white/60" />
+              <span className="w-11 h-11 rounded-full bg-secondary flex items-center justify-center shrink-0">
+                <UserRound className="w-5 h-5 stage-ink-muted" />
               </span>
             )}
             <div className="flex-1 min-w-0 text-right">
               <div className="text-[13px] font-bold truncate">
                 {surah?.arabicName} · آیه {toPersianDigits(ayah)}
               </div>
-              <div className="text-[11px] text-white/55 truncate">{reciter?.name}</div>
+              <div className="text-[11px] stage-ink-muted truncate">{reciter?.name}</div>
             </div>
             <button
               onClick={() => toggleFavorite(surahId)}
@@ -213,7 +213,7 @@ export function PlayerFull() {
               aria-pressed={fav}
               className={cn(
                 "w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-colors",
-                fav ? "text-[#E2C288] bg-[#E2C288]/15" : "text-white/55 hover:bg-white/10"
+                fav ? "text-brand-brass bg-brand-brass/15" : "stage-ink-muted hover:bg-secondary/60"
               )}
             >
               <Heart className={cn("w-5 h-5", fav && "fill-current")} />
@@ -223,7 +223,7 @@ export function PlayerFull() {
           {/* پیشرفت قابل‌کشیدن */}
           <div className="px-5 mt-4 shrink-0">
             <SeekBar pct={pct} onScrub={setScrub} onCommit={(r) => AudioEngine.seekToRatio(r)} />
-            <div className="flex justify-between mt-1.5 text-[10px] tabular-nums text-white/60">
+            <div className="flex justify-between mt-1.5 text-[10px] tabular-nums stage-ink-muted">
               <span>{fmt(progress.current)}</span>
               <span>{fmt(progress.duration)}</span>
             </div>
@@ -235,14 +235,14 @@ export function PlayerFull() {
               <button
                 onClick={smartPrev}
                 aria-label="آیه قبل"
-                className="w-12 h-12 shrink-0 rounded-full flex items-center justify-center text-white/85 hover:bg-white/10 active:scale-95 transition-transform"
+                className="w-12 h-12 shrink-0 rounded-full flex items-center justify-center stage-ink hover:bg-secondary/60 active:scale-95 transition-transform"
               >
                 <SkipBack className="w-[22px] h-[22px]" />
               </button>
               <button
                 onClick={() => skip(-10)}
                 aria-label="۱۰ ثانیه عقب"
-                className="w-11 h-11 shrink-0 rounded-full flex items-center justify-center text-white/60 hover:bg-white/10 active:scale-95 transition-transform"
+                className="w-11 h-11 shrink-0 rounded-full flex items-center justify-center stage-ink-muted hover:bg-secondary/60 active:scale-95 transition-transform"
               >
                 <RotateCcw className="w-5 h-5" />
               </button>
@@ -264,14 +264,14 @@ export function PlayerFull() {
               <button
                 onClick={() => skip(10)}
                 aria-label="۱۰ ثانیه جلو"
-                className="w-11 h-11 shrink-0 rounded-full flex items-center justify-center text-white/60 hover:bg-white/10 active:scale-95 transition-transform"
+                className="w-11 h-11 shrink-0 rounded-full flex items-center justify-center stage-ink-muted hover:bg-secondary/60 active:scale-95 transition-transform"
               >
                 <RotateCcw className="w-5 h-5 scale-x-[-1]" />
               </button>
               <button
                 onClick={nextAyah}
                 aria-label="آیه بعد"
-                className="w-12 h-12 shrink-0 rounded-full flex items-center justify-center text-white/85 hover:bg-white/10 active:scale-95 transition-transform"
+                className="w-12 h-12 shrink-0 rounded-full flex items-center justify-center stage-ink hover:bg-secondary/60 active:scale-95 transition-transform"
               >
                 <SkipForward className="w-[22px] h-[22px]" />
               </button>
@@ -280,7 +280,7 @@ export function PlayerFull() {
 
           {/* ردیف ثانویه — تک‌خطیِ قابل اسکرول (رسپانسیو در همه عرض‌ها) */}
           <div
-            className="mt-4 flex items-center gap-2 px-4 shrink-0 overflow-x-auto no-scrollbar"
+            className="mt-4 flex items-center gap-2 px-4 shrink-0 overflow-x-auto no-scrollbar fade-x"
             role="group"
             aria-label="تنظیمات پخش"
           >
@@ -403,9 +403,9 @@ function SeekBar({
         onScrub(null);
       }}
     >
-      <div className="relative w-full h-[5px] rounded-full bg-white/12">
+      <div className="relative w-full h-[5px] rounded-full seek-track">
         <div
-          className="absolute top-0 bottom-0 right-0 rounded-full bg-gradient-to-l from-[#E2C288] to-[#C9A45C] shadow-[0_0_10px_rgba(201,164,92,0.5)]"
+          className="absolute top-0 bottom-0 right-0 rounded-full seek-fill"
           style={{ width: `${pct}%` }}
         />
         <div
@@ -414,8 +414,7 @@ function SeekBar({
         >
           <span
             className={cn(
-              "block w-[14px] h-[14px] rounded-full bg-[#F4E9D4] border border-[#E2C288]",
-              "shadow-[0_1px_8px_rgba(0,0,0,0.5)] transition-transform",
+              "block w-[14px] h-[14px] rounded-full seek-thumb",
               dragging ? "scale-125" : "scale-100"
             )}
           />
@@ -450,8 +449,8 @@ function PillButton({
       className={cn(
         "flex items-center gap-1.5 rounded-full px-3.5 h-9 border transition-colors shrink-0",
         active
-          ? "border-[#E2C288]/60 bg-[#E2C288]/15 text-[#E2C288]"
-          : "border-white/15 bg-white/5 text-white/70 hover:bg-white/10"
+          ? "border-brand-brass/60 bg-brand-brass/15 text-brand-brass"
+          : "border-border bg-secondary/60 stage-ink-muted hover:bg-secondary"
       )}
     >
       {children}

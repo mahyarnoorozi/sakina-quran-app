@@ -415,7 +415,7 @@ function StatsView() {
   return (
     <div>
       <div className="rounded-3xl bg-gradient-to-bl from-[#2A4A40] to-[#145A48] text-[#F6F5F1] p-6 text-center shadow-card">
-        <BookOpen className="w-8 h-8 mx-auto text-[#C9A45C] mb-3" />
+        <BookOpen className="w-8 h-8 mx-auto text-brand-brass mb-3" />
         <p className="text-sm leading-7">{friendly}</p>
       </div>
 

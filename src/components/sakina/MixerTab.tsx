@@ -18,24 +18,25 @@ import {
 import { HSlider } from "./HSlider";
 import { PauseGlyph, PlayGlyph } from "./PlayPauseIcon";
 
-/** نشانگر واقعی لایه فعال — روشن/خاموش از استور */
+/** نشانگر واقعی لایه فعال — روشن/خاموش از استور؛ با sr-only برای اسکرین‌ریدر */
 function LayerDot({ on, label }: { on: boolean; label: string }) {
   return (
     <span
       className={cn(
         "inline-flex items-center gap-1.5 text-[10px] font-bold rounded-full px-2.5 py-1 border transition-colors",
         on
-          ? "border-[#2E9B7F]/50 bg-[#2E9B7F]/10 text-[#7FD6B8]"
-          : "border-white/10 bg-white/5 text-white/35"
+          ? "border-primary/50 bg-primary/10 text-primary"
+          : "border-border bg-secondary/60 text-brand-ink-muted"
       )}
     >
       <span
         className={cn(
           "w-1.5 h-1.5 rounded-full",
-          on ? "bg-[#7FD6B8] animate-pulse" : "bg-white/25"
+          on ? "bg-primary animate-pulse" : "bg-brand-ink-muted/40"
         )}
       />
       {label}
+      <span className="sr-only">{on ? "فعال" : "خاموش"}</span>
     </span>
   );
 }
@@ -93,7 +94,7 @@ export function MixerTab() {
       {/* پریست‌های آرامش */}
       <section className="px-5" aria-label="پریست‌ها">
         <h2 className="text-sm font-bold text-brand-ink-muted mb-3">پریست‌های آماده</h2>
-        <div className="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+        <div className="flex gap-3 overflow-x-auto no-scrollbar fade-x pb-2">
           {mixerPresets.map((p) => {
             const pc =
               p.ambientSoundId
@@ -108,7 +109,7 @@ export function MixerTab() {
                 <img src={pc} alt="" width={320} height={200} className="opacity-85" />
                 <div className="relative p-3.5 pt-16 min-h-[128px] flex flex-col justify-end">
                   {p.premium && (
-                    <span className="absolute top-3 left-3 glass w-7 h-7 rounded-full flex items-center justify-center text-[#E2C288]">
+                    <span className="absolute top-3 left-3 glass w-7 h-7 rounded-full flex items-center justify-center text-brand-brass">
                       <Crown className="w-3.5 h-3.5" />
                     </span>
                   )}
@@ -148,16 +149,17 @@ export function MixerTab() {
             />
           </div>
 
-          {/* وضعیت صدا فعال */}
-          <div className="mt-3 flex items-center justify-between text-[11px]">
-            <span className={cn("font-semibold", ambientSoundId ? "text-[#E2C288]" : "text-white/40")}>
-              {ambientSoundId ? `در حال پخش: ${soundNameOf(ambientSoundId)}` : "صدای طبیعت خاموش است"}
+          {/* وضعیت واقعی لایه‌ها — با برچسب واضح، قابل خواندن توسط اسکرین‌ریدر */}
+          <div className="mt-3 flex items-center gap-2">
+            <LayerDot on={isPlaying} label="تلاوت" />
+            <LayerDot on={!!ambientSoundId} label="طبیعت" />
+            <span className="text-[10px] text-brand-ink-muted truncate mr-auto">
+              {reciters.find((r) => r.id === reciterId)?.name}
             </span>
-            <span className="text-white/40">{reciters.find((r) => r.id === reciterId)?.name}</span>
           </div>
 
-          {/* ردیف آیکون‌ها — هم‌تراز Quranify */}
-          <div className="mt-4 pt-4 border-t border-white/10">
+          {/* ردیف آیکون‌ها — هم‌تراز الگوی میکسر */}
+          <div className="mt-4 pt-4 border-t border-border">
             <div className="flex items-center justify-between gap-1.5">
               {SOUND_CHIPS.map(({ id, icon: Icon, label }) => {
                 const active = ambientSoundId === id;
@@ -170,8 +172,8 @@ export function MixerTab() {
                     className={cn(
                       "flex flex-col items-center gap-1.5 flex-1 min-w-0 py-2 rounded-2xl transition-all active:scale-95",
                       active
-                        ? "bg-[#C9A45C] text-[#14100A] shadow-[0_2px_16px_rgba(201,164,92,0.4)]"
-                        : "text-white/55 hover:bg-white/8 hover:text-white/80"
+                        ? "gold-cta shadow-[0_2px_16px_rgba(201,164,92,0.4)]"
+                        : "text-brand-ink-muted hover:bg-secondary/60 hover:text-foreground"
                     )}
                   >
                     <Icon className="w-[22px] h-[22px]" strokeWidth={active ? 2.2 : 1.8} />
@@ -183,23 +185,17 @@ export function MixerTab() {
               })}
             </div>
           </div>
-
-          {/* وضعیت واقعی لایه‌ها — نمایشی نیست، از استور می‌خواند */}
-          <div className="mt-4 flex items-center gap-2" aria-hidden>
-            <LayerDot on={isPlaying} label="تلاوت" />
-            <LayerDot on={!!ambientSoundId} label="طبیعت" />
-          </div>
         </div>
       </section>
 
       {/* کنترل پخش + تایمر خواب */}
       <section className="px-5 mt-6" aria-label="پخش و تایمر">
-        <div className="rounded-3xl bg-gradient-to-l from-[#14231F] via-[#1D352E] to-[#31594D] text-[#F6F5F1] p-5 shadow-card">
+        <div className="ds-card rounded-3xl p-5 shadow-card">
           <div className="flex items-center gap-3">
             <button
               onClick={toggle}
               aria-label={isPlaying ? "توقف" : "پخش"}
-              className="w-14 h-14 rounded-full bg-[#C9A45C] text-[#101513] flex items-center justify-center shadow-glow active:scale-95 transition-transform shrink-0"
+              className="w-14 h-14 rounded-full gold-cta flex items-center justify-center active:scale-95 transition-transform shrink-0"
             >
               {isPlaying ? (
                 <PauseGlyph className="w-6 h-6" />
@@ -211,21 +207,21 @@ export function MixerTab() {
               <div className="text-sm font-bold truncate">
                 {surahs.find((s) => s.id === surahId)?.arabicName} · آیه {toPersianDigits(ayah)}
               </div>
-              <div className="text-[11px] text-[#9DB8AC] truncate">
+              <div className="text-[11px] text-brand-ink-muted truncate">
                 {reciters.find((r) => r.id === reciterId)?.name}
               </div>
             </div>
             <button
               onClick={() => setExpanded(true)}
-              className="text-[11px] font-bold text-[#C9A45C] border border-[#C9A45C]/40 rounded-full px-4 h-9"
+              className="text-[11px] font-bold text-brand-brass border border-brand-brass/40 rounded-full px-4 h-9"
             >
               پلیر
             </button>
           </div>
 
           {/* تایمر خواب */}
-          <div className="mt-4 pt-4 border-t border-white/10">
-            <div className="flex items-center gap-2 mb-3 text-[#9DB8AC] text-xs font-bold">
+          <div className="mt-4 pt-4 border-t border-border">
+            <div className="flex items-center gap-2 mb-3 text-brand-ink-muted text-xs font-bold">
               <Moon className="w-4 h-4" />
               تایمر خواب — محو تدریجی در پایان
             </div>
@@ -242,8 +238,8 @@ export function MixerTab() {
                     className={cn(
                       "h-10 rounded-xl text-xs font-black tabular-nums border transition-all",
                       active
-                        ? "border-[#C9A45C] bg-[#C9A45C]/20 text-[#C9A45C]"
-                        : "border-white/15 text-[#9DB8AC] hover:bg-white/10"
+                        ? "border-brand-brass bg-brand-brass/15 text-brand-brass"
+                        : "border-border text-brand-ink-muted hover:bg-secondary/60"
                     )}
                   >
                     {toPersianDigits(m)}′
@@ -253,7 +249,7 @@ export function MixerTab() {
               <button
                 onClick={cancelSleepTimer}
                 disabled={!sleepTimer.minutes}
-                className="h-10 rounded-xl text-[11px] font-bold border border-white/15 text-[#9DB8AC] hover:bg-white/10 disabled:opacity-40"
+                className="h-10 rounded-xl text-[11px] font-bold border border-border text-brand-ink-muted hover:bg-secondary/60 disabled:opacity-40"
               >
                 لغو
               </button>

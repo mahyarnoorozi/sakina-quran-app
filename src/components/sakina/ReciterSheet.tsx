@@ -40,7 +40,7 @@ export function ReciterSheet({
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent side="bottom" className="rounded-t-3xl max-h-[82vh] p-0 gap-0">
+      <SheetContent aria-describedby={undefined} side="bottom" className="z-[95] rounded-t-3xl max-h-[82vh] p-0 gap-0">
         <SheetHeader className="p-5 pb-3 text-right">
           <SheetTitle className="text-lg font-black">انتخاب قاری</SheetTitle>
         </SheetHeader>
@@ -55,7 +55,7 @@ export function ReciterSheet({
                   className={cn(
                     "w-full flex items-center gap-3 rounded-2xl border p-2.5 min-h-[72px] transition-all text-right",
                     active
-                      ? "border-[#C9A45C]/60 bg-[#C9A45C]/5"
+                      ? "border-brand-brass/60 bg-brand-brass/5"
                       : "border-border bg-card hover:border-primary/40"
                   )}
                 >
@@ -67,7 +67,7 @@ export function ReciterSheet({
                   >
                     <Image
                       src={r.image}
-                      alt={r.name}
+                      alt=""
                       width={112}
                       height={112}
                       className="object-cover w-full h-full"

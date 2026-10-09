@@ -60,7 +60,7 @@ export function SleepSheet({
             <div className="w-10 h-1 rounded-full bg-border mx-auto mb-6" />
 
             <div className="text-center mb-6">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-bl from-[#31594D] to-[#101513] text-[#C9A45C] flex items-center justify-center mx-auto mb-3">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-bl from-primary/25 to-secondary text-brand-brass flex items-center justify-center mx-auto mb-3">
                 <Moon className="w-7 h-7" />
               </div>
               <h2 className="text-lg font-black">حالت خواب</h2>

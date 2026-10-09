@@ -31,7 +31,7 @@ export function HSlider({
         className={cn(
           "shrink-0 w-10 h-10 rounded-full flex items-center justify-center border transition-colors",
           active
-            ? "border-white/15 bg-white/10 text-[#E2C288]"
+            ? "border-border bg-secondary text-brand-brass"
             : "border-white/10 bg-white/5 text-white/40"
         )}
         aria-hidden
@@ -49,7 +49,7 @@ export function HSlider({
             style={{
               width: `${pct}%`,
               background: active
-                ? "linear-gradient(to left, #E2C288 0%, #C9A45C 100%)"
+                ? "linear-gradient(to left, var(--brand-brass-bright) 0%, var(--brand-brass) 100%)"
                 : "rgba(255,255,255,0.25)",
               boxShadow: active ? "0 0 12px rgba(201,164,92,0.45)" : "none",
               transition: "width 90ms linear",
@@ -76,7 +76,7 @@ export function HSlider({
               className={cn(
                 "block w-[22px] h-[22px] rounded-full border transition-colors",
                 active
-                  ? "bg-[#F4E9D4] border-[#E2C288] shadow-[0_2px_10px_rgba(0,0,0,0.45)]"
+                  ? "bg-white border-brand-brass shadow-[0_2px_10px_rgba(0,0,0,0.25)]"
                   : "bg-white/40 border-white/30"
               )}
             />
